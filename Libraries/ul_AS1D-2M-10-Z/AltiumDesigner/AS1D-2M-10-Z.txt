@@ -1,0 +1,65 @@
+# Created by Ultra Librarian 8.3.362 Copyright © 1999-2024
+# Frank Frank, Accelerated Designs
+
+StartFootprints
+
+Footprint (Name "AS1D-2M_NDC")
+Pad (Name "1") (Location 0, 0) (HoleSize 39) (Surface False) (Rotation 0) (ExpandMask 0) (ExpandPaste -29.5)
+PadShape (Size 59, 59) (Shape Rectangular) (Layer Top)
+PadShape (Size 59, 59) (Shape Rectangular) (Layer Bottom)
+EndPad
+Pad (Name "2") (Location 0, -100) (HoleSize 39) (Surface False) (Rotation 0) (ExpandMask 0) (ExpandPaste -29.5)
+PadShape (Size 59, 59) (Shape Rounded) (Layer Top)
+PadShape (Size 59, 59) (Shape Rounded) (Layer Bottom)
+EndPad
+Pad (Name "3") (Location 0, -200) (HoleSize 39) (Surface False) (Rotation 0) (ExpandMask 0) (ExpandPaste -29.5)
+PadShape (Size 59, 59) (Shape Rounded) (Layer Top)
+PadShape (Size 59, 59) (Shape Rounded) (Layer Bottom)
+EndPad
+Line (Width 6) (Start -108.5, -297) (End 108.5, -297) (Layer Mechanical15) 
+Line (Width 6) (Start 108.5, -297) (End 108.5, 97) (Layer Mechanical15) 
+Line (Width 6) (Start 108.5, 97) (End -108.5, 97) (Layer Mechanical15) 
+Line (Width 6) (Start -108.5, 97) (End -108.5, -297) (Layer Mechanical15) 
+Polygon (PointCount 4) (Layer Mechanical15) 
+Point (-108.5, -297)
+Point (-108.5, 97)
+Point (108.5, 97)
+Point (108.5, -297)
+EndPolygon
+Line (Width 1) (Start -43.5, -186.5) (End -43.5, -13.5) (Layer Mechanical13) 
+Line (Width 1) (Start -43.5, -13.5) (End 43.5, -13.5) (Layer Mechanical13) 
+Line (Width 1) (Start 43.5, -13.5) (End 43.5, -186.5) (Layer Mechanical13) 
+Line (Width 1) (Start 43.5, -186.5) (End -43.5, -186.5) (Layer Mechanical13) 
+Line (Width 1) (Start -98.5, -287) (End 98.5, -287) (Layer Mechanical13) 
+Line (Width 1) (Start 98.5, -287) (End 98.5, 87) (Layer Mechanical13) 
+Line (Width 1) (Start 98.5, 87) (End -98.5, 87) (Layer Mechanical13) 
+Line (Width 1) (Start -98.5, 87) (End -98.5, -287) (Layer Mechanical13) 
+Polygon (PointCount 4) (Layer Mechanical13) 
+Point (-43.5, -186.5)
+Point (-43.5, -100)
+Point (43.5, -100)
+Point (43.5, -186.5)
+EndPolygon
+Text (Location -96, -25) (Height 50) (Width 3) (Rotation 0) (Layer Mechanical13) (Value "*")
+Line (Width 6) (Start -103.5, -292) (End 103.5, -292) (Layer TopOverlay) 
+Line (Width 6) (Start 103.5, -292) (End 103.5, 92) (Layer TopOverlay) 
+Line (Width 6) (Start 103.5, 92) (End -103.5, 92) (Layer TopOverlay) 
+Line (Width 6) (Start -103.5, 92) (End -103.5, -292) (Layer TopOverlay) 
+Text (Location -131, -25) (Height 50) (Width 3) (Rotation 0) (Layer TopOverlay) (Value "*")
+EndFootprint
+EndFootprints
+
+StartComponents
+
+Component (Name "AS1D-2M-10-Z") (PartCount 1) (DesPrefix "SW?")
+Pin (Location 300, 0) (Rotation 180) (PinType Passive) (Length 300) (Width 0) (Designator Visible "1") (Name Visible "1") (PinSwap 0) (PartSwap 0) (PinSeq 1) (Part 1)
+Pin (Location 1300, -100) (Rotation 0) (PinType Passive) (Length 300) (Width 0) (Designator Visible "2") (Name Visible "2") (PinSwap 0) (PartSwap 0) (PinSeq 2) (Part 1)
+Pin (Location 1300, 0) (Rotation 0) (PinType Passive) (Length 300) (Width 0) (Designator Visible "3") (Name Visible "3") (PinSwap 0) (PartSwap 0) (PinSeq 3) (Part 1)
+Rectangle (Width 5) (Start 300, -300) (End 1300, 200) (Part 1)
+Parameter (Name "Mfr_Name") (Location 0, 0) (Height 50) (Rotation 0) (Justification Center) (Value "Nidec Copal Electronics") (Part 1)
+Parameter (Name "RefDes") (Location 800, 400) (Height 82) (Rotation 0) (Justification Center) (Value "RefDes") (Part 1)
+Parameter (Name "Type") (Location 800, 300) (Height 82) (Rotation 0) (Justification Center) (Value "Type") (Part 1)
+Description (Value "No Description Available") (Part 1)
+Footprint (Name "AS1D-2M_NDC")
+EndComponent
+EndComponents
