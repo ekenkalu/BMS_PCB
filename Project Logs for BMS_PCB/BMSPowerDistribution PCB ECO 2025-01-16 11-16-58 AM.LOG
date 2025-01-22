@@ -1,0 +1,25 @@
+Change Component Footprint: Designator=J3 Old Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW New Footprint=CONN_SD-172042-001_02_BL_MOL
+Change Component Footprint: Designator=J4 Old Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW New Footprint=CONN_SD-172042-001_02_BL_MOL
+Change Component Footprint: Designator=J5 Old Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW New Footprint=CONN_SD-172042-001_02_BL_MOL
+Change Component Footprint: Designator=J6 Old Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW New Footprint=CONN_SD-172042-001_02_BL_MOL
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Change Component Comment : Designator=J3 Old Comment=M80-5000000M5-02-PM3-00-000 New Comment=1720420206
+Change Component Comment : Designator=J4 Old Comment=M80-5000000M5-02-PM3-00-000 New Comment=1720420206
+Change Component Comment : Designator=J5 Old Comment=M80-5000000M5-02-PM3-00-000 New Comment=1720420206
+Change Component Comment : Designator=J6 Old Comment=M80-5000000M5-02-PM3-00-000 New Comment=1720420206
+Change component parameters: Designator = "J3" ("J3"); Footprint = "CONN2_M80-5000000M5-02-PM3-00-000_HRW"; UniqueID = "\ZMNVSUDH" ("\ZMNVSUDH")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J4" ("J4"); Footprint = "CONN2_M80-5000000M5-02-PM3-00-000_HRW"; UniqueID = "\DMCKDYIW" ("\DMCKDYIW")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J5" ("J5"); Footprint = "CONN2_M80-5000000M5-02-PM3-00-000_HRW"; UniqueID = "\XJYPPNCD" ("\XJYPPNCD")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J6" ("J6"); Footprint = "CONN2_M80-5000000M5-02-PM3-00-000_HRW"; UniqueID = "\KFFHRDNI" ("\KFFHRDNI")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"

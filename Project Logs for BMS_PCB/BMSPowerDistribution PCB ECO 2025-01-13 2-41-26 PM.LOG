@@ -1,0 +1,8 @@
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Added Component: Designator=J5.51(CONN_B2PS-VH_JST)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetF5_2 Pin=J5.51-1
+Added Pin To Net: NetName=GND Pin=J5.51-2
+Added Member To Class: ClassName=BuckConverters Member=Component J5.51 B2PS-VHLFSN

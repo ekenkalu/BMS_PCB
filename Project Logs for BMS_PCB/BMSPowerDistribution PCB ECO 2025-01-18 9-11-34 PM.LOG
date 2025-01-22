@@ -1,0 +1,64 @@
+Removed Pin From Net: NetName=NetF9_2 Pin=J5-11
+Removed Pin From Net: NetName=NetF9_2 Pin=J5-12
+Removed Pin From Net: NetName=GND Pin=J5-21
+Removed Pin From Net: NetName=GND Pin=J5-22
+Removed Pin From Net: NetName=NetF10_2 Pin=J6-11
+Removed Pin From Net: NetName=NetF10_2 Pin=J6-12
+Removed Pin From Net: NetName=GND Pin=J6-21
+Removed Pin From Net: NetName=GND Pin=J6-22
+Change Component Footprint: Designator=J5 Old Footprint=CON_428192233 New Footprint=CONN_SD-768290002_02_MOL
+Change Component Footprint: Designator=J6 Old Footprint=CON_428192233 New Footprint=CONN_SD-768290002_02_MOL
+Change Component Footprint: Designator=J2 Old Footprint=CONN2_LFBN-RC_SUL - duplicate New Footprint=CONN_SD-768290002_02_MOL
+Change Component Footprint: Designator=J5.51 Old Footprint=FP-215915-1002-MFG New Footprint=CONN_SD-768290002_02_MOL
+Change Component Footprint: Designator=J5.52 Old Footprint=FP-215915-1002-MFG New Footprint=CONN_SD-768290002_02_MOL
+Change Component Footprint: Designator=J7 Old Footprint=FP-215915-1002-MFG New Footprint=CONN_SD-768290002_02_MOL
+Change Component Footprint: Designator=J8 Old Footprint=FP-215915-1002-MFG New Footprint=CONN_SD-768290002_02_MOL
+Change Component Footprint: Designator=J9 Old Footprint=FP-215915-1002-MFG New Footprint=CONN_SD-768290002_02_MOL
+Change Component Footprint: Designator=J? Old Footprint=FP-215915-1002-MFG New Footprint=CONN_SD-768290002_02_MOL
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Change Component Comment : Designator=J5.51 Old Comment=215915-1002 New Comment=1720650202
+Change Component Comment : Designator=J5.52 Old Comment=215915-1002 New Comment=1720650202
+Change Component Comment : Designator=J7 Old Comment=215915-1002 New Comment=1720650202
+Change Component Comment : Designator=J8 Old Comment=215915-1002 New Comment=1720650202
+Change Component Comment : Designator=J9 Old Comment=215915-1002 New Comment=1720650202
+Change Component Comment : Designator=J? Old Comment=215915-1002 New Comment=1720650202
+Change Component Comment : Designator=J5 Old Comment=428192233 New Comment=1720650202
+Change Component Comment : Designator=J6 Old Comment=428192233 New Comment=1720650202
+Change Managed Component Library Link : Designator=J5.51 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 New ItemGUID= Old RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC New RevisionGUID=
+Change Managed Component Library Link : Designator=J5.52 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 New ItemGUID= Old RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC New RevisionGUID=
+Change Managed Component Library Link : Designator=J7 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 New ItemGUID= Old RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC New RevisionGUID=
+Change Managed Component Library Link : Designator=J8 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 New ItemGUID= Old RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC New RevisionGUID=
+Change Managed Component Library Link : Designator=J9 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 New ItemGUID= Old RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC New RevisionGUID=
+Change Managed Component Library Link : Designator=J? Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 New ItemGUID= Old RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC New RevisionGUID=
+Change component parameters: Designator = "J5.51" ("J5.51"); Footprint = "FP-215915-1002-MFG"; UniqueID = "\OEPHAZJB" ("\OEPHAZJB")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J5.52" ("J5.52"); Footprint = "FP-215915-1002-MFG"; UniqueID = "\LJJSSRQN" ("\LJJSSRQN")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J7" ("J7"); Footprint = "FP-215915-1002-MFG"; UniqueID = "\XTINSEAJ" ("\XTINSEAJ")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J8" ("J8"); Footprint = "FP-215915-1002-MFG"; UniqueID = "\PPMPUAAJ" ("\PPMPUAAJ")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J9" ("J9"); Footprint = "FP-215915-1002-MFG"; UniqueID = "\JVMUSDYC" ("\JVMUSDYC")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J?" ("J?"); Footprint = "FP-215915-1002-MFG"; UniqueID = "\STLFPTHZ" ("\STLFPTHZ")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Molex Connector Corporation"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetF9_2 Pin=J5-1
+Added Pin To Net: NetName=GND Pin=J5-2
+Added Pin To Net: NetName=NetF10_2 Pin=J6-1
+Added Pin To Net: NetName=GND Pin=J6-2
+Added Member To Class: ClassName=BuckConverters Member=Component J3 428192233
+Added Member To Class: ClassName=BuckConverters Member=Component J4 428192233
+Added Member To Class: ClassName=BuckConverters Member=Component J5 1720650202
+Added Member To Class: ClassName=BuckConverters Member=Component J6 1720650202

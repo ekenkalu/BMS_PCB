@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=I/O1 Pin=Um1-58
+Removed Pin From Net: NetName=I/O2 Pin=Um1-59
+Removed Pin From Net: NetName=NetLabel40 Pin=Um1-61
+Removed Pin From Net: NetName=NetLabel41 Pin=Um1-62
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Added Pin To Net: NetName=NetLabel40 Pin=Um1-58
+Added Pin To Net: NetName=NetLabel41 Pin=Um1-59
+Added Pin To Net: NetName=I/O1 Pin=Um1-61
+Added Pin To Net: NetName=I/O2 Pin=Um1-62
+Added Member To Class: ClassName=BuckConverters Member=Component F5 3568

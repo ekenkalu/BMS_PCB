@@ -1,0 +1,92 @@
+# Created by Ultra Librarian 8.3.365 Copyright © 1999-2024
+# Frank Frank, Accelerated Designs
+
+StartFootprints
+
+Footprint (Name "CON_428192233")
+Pad (Name "11") (Location 0, 0) (HoleSize 110.236198425293) (Surface False) (Rotation 0) (ExpandMask 3) (ExpandPaste -64.96064758)
+PadShape (Size 129.92129517, 129.92129517) (Shape Rectangular) (Layer Top)
+PadShape (Size 129.92129517, 129.92129517) (Shape Rectangular) (Layer Bottom)
+EndPad
+Pad (Name "12") (Location 0, -173.2283) (HoleSize 110.236198425293) (Surface False) (Rotation 0) (ExpandMask 3) (ExpandPaste -64.96064758)
+PadShape (Size 129.92129517, 129.92129517) (Shape Rectangular) (Layer Top)
+PadShape (Size 129.92129517, 129.92129517) (Shape Rectangular) (Layer Bottom)
+EndPad
+Pad (Name "21") (Location -393.7008, 0) (HoleSize 110.236198425293) (Surface False) (Rotation 0) (ExpandMask 3) (ExpandPaste -64.96064758)
+PadShape (Size 129.92129517, 129.92129517) (Shape Rounded) (Layer Top)
+PadShape (Size 129.92129517, 129.92129517) (Shape Rounded) (Layer Bottom)
+EndPad
+Pad (Name "22") (Location -393.7008, -173.2283) (HoleSize 110.236198425293) (Surface False) (Rotation 0) (ExpandMask 3) (ExpandPaste -64.96064758)
+PadShape (Size 129.92129517, 129.92129517) (Shape Rounded) (Layer Top)
+PadShape (Size 129.92129517, 129.92129517) (Shape Rounded) (Layer Bottom)
+EndPad
+Pad (Name "M1") (Location 225.59049988, -155.51179504) (HoleSize 118.110198974609) (Plated 0) (Surface False) (Rotation 0) (ExpandMask 3) (ExpandPaste -59.05509949)
+PadShape (Size 118.11019897, 118.11019897) (Shape Rounded) (Layer Top)
+PadShape (Size 118.11019897, 118.11019897) (Shape Rounded) (Layer Bottom)
+EndPad
+Pad (Name "M2") (Location -619.29180908, -155.51179504) (HoleSize 118.110198974609) (Plated 0) (Surface False) (Rotation 0) (ExpandMask 3) (ExpandPaste -59.05509949)
+PadShape (Size 118.11019897, 118.11019897) (Shape Rounded) (Layer Top)
+PadShape (Size 118.11019897, 118.11019897) (Shape Rounded) (Layer Bottom)
+EndPad
+Line (Width 5) (Start -715.74707031, 229.13380432) (End -715.74707031, -425.98431396) (Layer Mechanical15) 
+Line (Width 5) (Start -715.74707031, -425.98431396) (End 322.04629517, -425.98431396) (Layer Mechanical15) 
+Line (Width 5) (Start 322.04629517, -425.98431396) (End 322.04629517, 229.13380432) (Layer Mechanical15) 
+Line (Width 5) (Start 322.04629517, 229.13380432) (End -715.74707031, 229.13380432) (Layer Mechanical15) 
+Polygon (PointCount 4) (Layer Mechanical15) 
+Point (-715.74707031, 229.13380432)
+Point (-715.74707031, -425.98431396)
+Point (322.04629517, -425.98431396)
+Point (322.04629517, 229.13380432)
+EndPolygon
+Line (Width 5) (Start 0, 189.13380432) (End 25, 249.13380432) (Layer Mechanical13) 
+Line (Width 5) (Start 25, 249.13380432) (End -25, 249.13380432) (Layer Mechanical13) 
+Line (Width 5) (Start -25, 249.13380432) (End 0, 189.13380432) (Layer Mechanical13) 
+Line (Width 5) (Start -665.74707031, -375.98431396) (End 272.04629517, -375.98431396) (Layer Mechanical13) 
+Line (Width 5) (Start 272.04629517, -375.98431396) (End 272.04629517, 179.13380432) (Layer Mechanical13) 
+Line (Width 5) (Start 272.04629517, 179.13380432) (End -665.74707031, 179.13380432) (Layer Mechanical13) 
+Line (Width 5) (Start -665.74707031, 179.13380432) (End -665.74707031, -375.98431396) (Layer Mechanical13) 
+Text (Location -309.35040283, 601.5748291) (Height 50) (Width 3) (Rotation 0) (Layer Mechanical13) (Value "428192233")
+Line (Width 6) (Start 0, 189.13380432) (End 25, 249.13380432) (Layer TopOverlay) 
+Line (Width 6) (Start 25, 249.13380432) (End -25, 249.13380432) (Layer TopOverlay) 
+Line (Width 6) (Start -25, 249.13380432) (End 0, 189.13380432) (Layer TopOverlay) 
+Line (Width 6) (Start -665.74707031, -209.9364307) (End -665.74707031, -375.98431396) (Layer TopOverlay) 
+Line (Width 6) (Start -665.74707031, 179.13380432) (End -665.74707031, -101.08715938) (Layer TopOverlay) 
+Line (Width 6) (Start -665.74707031, -375.98431396) (End 272.04629517, -375.98431396) (Layer TopOverlay) 
+Line (Width 6) (Start 272.04629517, -375.98431396) (End 272.04629517, -209.93597484) (Layer TopOverlay) 
+Line (Width 6) (Start 272.04629517, 179.13380432) (End -665.74707031, 179.13380432) (Layer TopOverlay) 
+Line (Width 6) (Start 272.04629517, -101.08761524) (End 272.04629517, 179.13380432) (Layer TopOverlay) 
+Text (Location -309.35040283, 601.5748291) (Height 50) (Width 3) (Rotation 0) (Layer TopOverlay) (Value "428192233")
+Text (Location -696.85040283, -748.4251709) (Height 50) (Width 3) (Rotation 0) (Layer Mechanical3) (Value "PTH_DRILL_SIZE:_2.8_MM,_TOL:_+0.10/-0.10")
+Text (Location -721.85040283, -848.4251709) (Height 50) (Width 3) (Rotation 0) (Layer Mechanical3) (Value "NPTH_DRILL_SIZE:_3.00_MM,_TOL:_+0.05/-0.05")
+Text (Location -696.85040283, -748.4251709) (Height 50) (Width 3) (Rotation 0) (Layer Mechanical10) (Value "PTH_DRILL_SIZE:_2.8_MM,_TOL:_+0.10/-0.10")
+Text (Location -721.85040283, -848.4251709) (Height 50) (Width 3) (Rotation 0) (Layer Mechanical10) (Value "NPTH_DRILL_SIZE:_3.00_MM,_TOL:_+0.05/-0.05")
+EndFootprint
+EndFootprints
+
+StartComponents
+
+Component (Name "428192233") (PartCount 1) (DesPrefix "J?")
+Pin (Location 200, 0) (Rotation 180) (PinType Passive) (Length 200) (Width 0) (Designator Visible "11") (Name Hidden "11") (PinSwap 0) (PartSwap 0) (PinSeq 1) (Part 1)
+Pin (Location 200, -100) (Rotation 180) (PinType Passive) (Length 200) (Width 0) (Designator Visible "12") (Name Hidden "12") (PinSwap 0) (PartSwap 0) (PinSeq 2) (Part 1)
+Pin (Location 200, -200) (Rotation 180) (PinType Passive) (Length 200) (Width 0) (Designator Visible "21") (Name Hidden "21") (PinSwap 0) (PartSwap 0) (PinSeq 3) (Part 1)
+Pin (Location 200, -300) (Rotation 180) (PinType Passive) (Length 200) (Width 0) (Designator Visible "22") (Name Hidden "22") (PinSwap 0) (PartSwap 0) (PinSeq 4) (Part 1)
+Line (Width 5) (Start 400, 0) (End 200, 0) (Part 1)
+Line (Width 5) (Start 400, -100) (End 200, -100) (Part 1)
+Line (Width 5) (Start 400, -200) (End 200, -200) (Part 1)
+Line (Width 5) (Start 400, -300) (End 200, -300) (Part 1)
+Line (Width 5) (Start 400, 0) (End 350, 33.3333) (Part 1)
+Line (Width 5) (Start 400, -100) (End 350, -66.6667) (Part 1)
+Line (Width 5) (Start 400, -200) (End 350, -166.6667) (Part 1)
+Line (Width 5) (Start 400, -300) (End 350, -266.6667) (Part 1)
+Line (Width 5) (Start 400, 0) (End 350, -33.3333) (Part 1)
+Line (Width 5) (Start 400, -100) (End 350, -133.3333) (Part 1)
+Line (Width 5) (Start 400, -200) (End 350, -233.3333) (Part 1)
+Line (Width 5) (Start 400, -300) (End 350, -333.3333) (Part 1)
+Rectangle (Width 5) (Start 200, -400) (End 500, 100) (Part 1)
+Parameter (Name "Mfr_Name") (Location 0, 0) (Height 50) (Rotation 0) (Justification Center) (Value "Molex Connector Corporation") (Part 1)
+Parameter (Name "RefDes") (Location 350, 250) (Height 82) (Rotation 0) (Justification Center) (Value "RefDes") (Part 1)
+Parameter (Name "Type") (Location 400, -200) (Height 82) (Rotation 0) (Justification Center) (Value "Type") (Part 1)
+Description (Value "No Description Available") (Part 1)
+Footprint (Name "CON_428192233")
+EndComponent
+EndComponents

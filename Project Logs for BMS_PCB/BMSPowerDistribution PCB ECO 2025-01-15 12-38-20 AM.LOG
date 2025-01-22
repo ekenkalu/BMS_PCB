@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=GND Pin=JGND relay-1
+Removed Member From Class: ClassName=BuckConverters Member=JGND relay
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX

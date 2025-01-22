@@ -1,0 +1,71 @@
+Removed Pin From Net: NetName=GND Pin=J12-4
+Removed Pin From Net: NetName=NetLabel61 Pin=J13-1
+Removed Pin From Net: NetName=NetLabel62 Pin=J13-2
+Removed Pin From Net: NetName=GND Pin=J13-4
+Removed Pin From Net: NetName=NetLabel65 Pin=J14-1
+Removed Pin From Net: NetName=NetLabel66 Pin=J14-2
+Removed Pin From Net: NetName=GND Pin=J14-4
+Removed Pin From Net: NetName=NetLabel63 Pin=J16-1
+Removed Pin From Net: NetName=NetLabel64 Pin=J16-2
+Removed Pin From Net: NetName=GND Pin=J16-4
+Removed Pin From Net: NetName=3.3+ Pin=J17-1
+Change Component Footprint: Designator=J12 Old Footprint=FP-505567-0281-MFG New Footprint=JST-B3B-PH-K-S-3_V
+Change Component Footprint: Designator=J13 Old Footprint=FP-505567-0281-MFG New Footprint=JST-B3B-PH-K-S-3_V
+Change Component Footprint: Designator=J14 Old Footprint=FP-505567-0281-MFG New Footprint=JST-B3B-PH-K-S-3_V
+Change Component Footprint: Designator=J16 Old Footprint=FP-505567-0281-MFG New Footprint=JST-B3B-PH-K-S-3_V
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Change Component Comment : Designator=J12 Old Comment=505567-0281 New Comment=B3B-PH-K-S(LF)(SN)
+Change Component Comment : Designator=J13 Old Comment=505567-0281 New Comment=B3B-PH-K-S(LF)(SN)
+Change Component Comment : Designator=J14 Old Comment=505567-0281 New Comment=B3B-PH-K-S(LF)(SN)
+Change Component Comment : Designator=J16 Old Comment=505567-0281 New Comment=B3B-PH-K-S(LF)(SN)
+Change Managed Component Library Link : Designator=J12 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=35D68AB7-BDA6-4F3F-81AF-76E86F326123 New ItemGUID=6C8DFDE7-42C8-4DBF-88C7-014187F1BEC7 Old RevisionGUID=31BE2C0E-6722-4A4D-8D73-2C4D552FD196 New RevisionGUID=AEA4448A-31FD-4725-A6A6-E3EAF580060F
+Change Managed Component Library Link : Designator=J13 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=35D68AB7-BDA6-4F3F-81AF-76E86F326123 New ItemGUID=6C8DFDE7-42C8-4DBF-88C7-014187F1BEC7 Old RevisionGUID=31BE2C0E-6722-4A4D-8D73-2C4D552FD196 New RevisionGUID=AEA4448A-31FD-4725-A6A6-E3EAF580060F
+Change Managed Component Library Link : Designator=J14 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=35D68AB7-BDA6-4F3F-81AF-76E86F326123 New ItemGUID=6C8DFDE7-42C8-4DBF-88C7-014187F1BEC7 Old RevisionGUID=31BE2C0E-6722-4A4D-8D73-2C4D552FD196 New RevisionGUID=AEA4448A-31FD-4725-A6A6-E3EAF580060F
+Change Managed Component Library Link : Designator=J16 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=35D68AB7-BDA6-4F3F-81AF-76E86F326123 New ItemGUID=6C8DFDE7-42C8-4DBF-88C7-014187F1BEC7 Old RevisionGUID=31BE2C0E-6722-4A4D-8D73-2C4D552FD196 New RevisionGUID=AEA4448A-31FD-4725-A6A6-E3EAF580060F
+Change component parameters: Designator = "J12" ("J12"); Footprint = "FP-505567-0281-MFG"; UniqueID = "\ZVECTKAM" ("\ZVECTKAM")
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "https://datasheet.ciiva.com/11746/0900766b80826550-11746939.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Oct-06"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.jst.com/home2.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "No of Positions"; Value = "3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Style/Orientation"; Value = "StraightHeader/Plug"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Termination"; Value = "Crimp"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "ShroudedHeader"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J13" ("J13"); Footprint = "FP-505567-0281-MFG"; UniqueID = "\UWEFFUWR" ("\UWEFFUWR")
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "https://datasheet.ciiva.com/11746/0900766b80826550-11746939.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Oct-06"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.jst.com/home2.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "No of Positions"; Value = "3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Style/Orientation"; Value = "StraightHeader/Plug"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Termination"; Value = "Crimp"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "ShroudedHeader"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J14" ("J14"); Footprint = "FP-505567-0281-MFG"; UniqueID = "\VLOSEKNE" ("\VLOSEKNE")
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "https://datasheet.ciiva.com/11746/0900766b80826550-11746939.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Oct-06"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.jst.com/home2.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "No of Positions"; Value = "3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Style/Orientation"; Value = "StraightHeader/Plug"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Termination"; Value = "Crimp"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "ShroudedHeader"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J16" ("J16"); Footprint = "FP-505567-0281-MFG"; UniqueID = "\ACLNSYZV" ("\ACLNSYZV")
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "https://datasheet.ciiva.com/11746/0900766b80826550-11746939.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Oct-06"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.jst.com/home2.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "No of Positions"; Value = "3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Style/Orientation"; Value = "StraightHeader/Plug"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Termination"; Value = "Crimp"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "ShroudedHeader"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetLabel62 Pin=J13-1
+Added Pin To Net: NetName=NetLabel61 Pin=J13-2
+Added Pin To Net: NetName=NetLabel64 Pin=J16-1
+Added Pin To Net: NetName=NetLabel63 Pin=J16-2
+Added Pin To Net: NetName=NetF5_2 Pin=J17-1
+Change Net Name : Old Net Name=NetF5_2 New Net Name=+5
+Added Rule: Name=Schematic Supply Nets_4

@@ -1,0 +1,31 @@
+Change Component Footprint: Designator=J7 Old Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW New Footprint=FP-215915-1002-MFG
+Change Component Footprint: Designator=J5.51 Old Footprint=CONN_B2PS-VH_JST New Footprint=FP-215915-1002-MFG
+Change Component Footprint: Designator=J5.52 Old Footprint=CONN_B2PS-VH_JST New Footprint=FP-215915-1002-MFG
+Change Component Footprint: Designator=J8 Old Footprint=CONN_B2PS-VH_JST New Footprint=FP-215915-1002-MFG
+Change Component Footprint: Designator=J9 Old Footprint=CONN_B2PS-VH_JST New Footprint=FP-215915-1002-MFG
+Change Component Footprint: Designator=J? Old Footprint=CONN_B2PS-VH_JST New Footprint=FP-215915-1002-MFG
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Change Component Comment : Designator=J5.51 Old Comment=B2PS-VHLFSN New Comment=215915-1002
+Change Component Comment : Designator=J5.52 Old Comment=B2PS-VHLFSN New Comment=215915-1002
+Change Component Comment : Designator=J8 Old Comment=B2PS-VHLFSN New Comment=215915-1002
+Change Component Comment : Designator=J9 Old Comment=B2PS-VHLFSN New Comment=215915-1002
+Change Component Comment : Designator=J? Old Comment=B2PS-VHLFSN New Comment=215915-1002
+Change Component Comment : Designator=J7 Old Comment=M80-5000000M5-02-PM3-00-000 New Comment=215915-1002
+Change Managed Component Library Link : Designator=J5.51 Old VaultGUID= New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID= New ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 Old RevisionGUID= New RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC
+Change Managed Component Library Link : Designator=J5.52 Old VaultGUID= New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID= New ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 Old RevisionGUID= New RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC
+Change Managed Component Library Link : Designator=J7 Old VaultGUID= New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID= New ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 Old RevisionGUID= New RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC
+Change Managed Component Library Link : Designator=J8 Old VaultGUID= New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID= New ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 Old RevisionGUID= New RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC
+Change Managed Component Library Link : Designator=J9 Old VaultGUID= New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID= New ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 Old RevisionGUID= New RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC
+Change Managed Component Library Link : Designator=J? Old VaultGUID= New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID= New ItemGUID=7FA9F2E4-D560-40A5-93A9-C5D386C10821 Old RevisionGUID= New RevisionGUID=8256CC17-0D20-44A2-BB98-DD288CAD04FC
+Change component parameters: Designator = "J5.51" ("J5.51"); Footprint = "CONN_B2PS-VH_JST"; UniqueID = "\BRHVZBFL" ("\BRHVZBFL")
+Change component parameters (AddParameter): Name = "NexarPartId"; Value = "128056767"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J5.52" ("J5.52"); Footprint = "CONN_B2PS-VH_JST"; UniqueID = "\DDQMQYJN" ("\DDQMQYJN")
+Change component parameters (AddParameter): Name = "NexarPartId"; Value = "128056767"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J7" ("J7"); Footprint = "CONN2_M80-5000000M5-02-PM3-00-000_HRW"; UniqueID = "\CXCFGRQY" ("\CXCFGRQY")
+Change component parameters (AddParameter): Name = "NexarPartId"; Value = "128056767"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J8" ("J8"); Footprint = "CONN_B2PS-VH_JST"; UniqueID = "\DIWDOZAW" ("\DIWDOZAW")
+Change component parameters (AddParameter): Name = "NexarPartId"; Value = "128056767"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J9" ("J9"); Footprint = "CONN_B2PS-VH_JST"; UniqueID = "\LHCCCEMU" ("\LHCCCEMU")
+Change component parameters (AddParameter): Name = "NexarPartId"; Value = "128056767"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J?" ("J?"); Footprint = "CONN_B2PS-VH_JST"; UniqueID = "\KVDXAWCW" ("\KVDXAWCW")
+Change component parameters (AddParameter): Name = "NexarPartId"; Value = "128056767"; VariantName = "[No Variations]"

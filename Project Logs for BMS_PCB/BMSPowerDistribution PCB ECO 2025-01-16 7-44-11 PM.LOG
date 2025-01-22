@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND Pin=MP1-1
+Removed Pin From Net: NetName=GND Pin=MP2-1
+Removed Pin From Net: NetName=GND Pin=MP3-1
+Removed Pin From Net: NetName=GND Pin=MP4-1
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX

@@ -1,0 +1,111 @@
+Removed Pin From Net: NetName=GND Pin=J3-4
+Removed Pin From Net: NetName=NetF13_2 Pin=J3-8
+Removed Pin From Net: NetName=GND Pin=J4-4
+Removed Pin From Net: NetName=NetF8_2 Pin=J4-8
+Removed Pin From Net: NetName=GND Pin=J5-4
+Removed Pin From Net: NetName=NetF9_2 Pin=J5-8
+Removed Pin From Net: NetName=GND Pin=J6-4
+Removed Pin From Net: NetName=NetF10_2 Pin=J6-8
+Removed Pin From Net: NetName=GND Pin=J7-4
+Removed Pin From Net: NetName=NetF2_2 Pin=J7-8
+Change Component Footprint: Designator=J3 Old Footprint=CONN_39920-0302_MOL New Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW
+Change Component Footprint: Designator=J4 Old Footprint=CONN_39920-0302_MOL New Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW
+Change Component Footprint: Designator=J5 Old Footprint=CONN_39920-0302_MOL New Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW
+Change Component Footprint: Designator=J6 Old Footprint=CONN_39920-0302_MOL New Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW
+Change Component Footprint: Designator=J7 Old Footprint=CONN_39920-0302_MOL New Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW
+Change Component Footprint: Designator=J5.51 Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Component Footprint: Designator=J5.52 Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Component Footprint: Designator=J8 Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Component Footprint: Designator=J9 Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Component Footprint: Designator=J? Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Component Footprint: Designator=K1 Old Footprint=FP-HE1AN-W-DC12V-Y7-MFG New Footprint=FP-HE1AN-W-DC12V-Y6-MFG
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Change Component Comment : Designator=J3 Old Comment=399200302 New Comment=M80-5000000M5-02-PM3-00-000
+Change Component Comment : Designator=J4 Old Comment=399200302 New Comment=M80-5000000M5-02-PM3-00-000
+Change Component Comment : Designator=J5 Old Comment=399200302 New Comment=M80-5000000M5-02-PM3-00-000
+Change Component Comment : Designator=J6 Old Comment=399200302 New Comment=M80-5000000M5-02-PM3-00-000
+Change Component Comment : Designator=J7 Old Comment=399200302 New Comment=M80-5000000M5-02-PM3-00-000
+Change Component Comment : Designator=J5.51 Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Component Comment : Designator=J5.52 Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Component Comment : Designator=J8 Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Component Comment : Designator=J9 Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Component Comment : Designator=J? Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Component Comment : Designator=K1 Old Comment=HE1AN-W-DC12V-Y7 New Comment=HE1AN-W-DC12V-Y6
+Change Managed Component Library Link : Designator=K1 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=7CA6E29F-F5C6-4310-A516-1CFBBFD17BDA New ItemGUID=E47D60D1-3018-43A5-8A28-97008B454D71 Old RevisionGUID=97719C22-34D6-4395-81A3-644EE7B8ADC3 New RevisionGUID=85E67258-A90C-42E8-9134-0DE55C0C6BFF
+Change Managed Component Library Link : Designator=J5.51 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change Managed Component Library Link : Designator=J5.52 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change Managed Component Library Link : Designator=J8 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change Managed Component Library Link : Designator=J9 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change Managed Component Library Link : Designator=J? Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change component parameters: Designator = "J3" ("J3"); Footprint = "CONN_39920-0302_MOL"; UniqueID = "\IKIBAAII" ("\IKIBAAII")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J4" ("J4"); Footprint = "CONN_39920-0302_MOL"; UniqueID = "\KMKONZDB" ("\KMKONZDB")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J5" ("J5"); Footprint = "CONN_39920-0302_MOL"; UniqueID = "\XRXUKLGZ" ("\XRXUKLGZ")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J5.51" ("J5.51"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\MSDBEVEQ" ("\MSDBEVEQ")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J5.52" ("J5.52"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\BBHJXPAH" ("\BBHJXPAH")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J6" ("J6"); Footprint = "CONN_39920-0302_MOL"; UniqueID = "\AZJQURNQ" ("\AZJQURNQ")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J7" ("J7"); Footprint = "CONN_39920-0302_MOL"; UniqueID = "\EIKJBWCI" ("\EIKJBWCI")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J8" ("J8"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\ANNNPRQC" ("\ANNNPRQC")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J9" ("J9"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\UTFZQUWN" ("\UTFZQUWN")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J?" ("J?"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\OQTPPOAI" ("\OQTPPOAI")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "K1" ("K1"); Footprint = "FP-HE1AN-W-DC12V-Y7-MFG"; UniqueID = "\KSAAPMIT" ("\KSAAPMIT")
+Change component parameters (AddParameter): Name = "Coil Current"; Value = "160mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Coil Power"; Value = "1.92W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Coil Resistance"; Value = "75O"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Coil Type"; Value = "Non-Latching"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Coil Voltage (DC)"; Value = "12V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Contact Current Rating"; Value = "90A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Contact Material"; Value = "Silver"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Current Rating"; Value = "90A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "55°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-50°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "PCB, Through Hole"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "NexarPartId"; Value = "65278423"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operate Time"; Value = "30ms"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Relay Type"; Value = "General Purpose"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Release Time"; Value = "10ms"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHS"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Termination"; Value = "PC Pin"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Throw Configuration"; Value = "SPST"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetF13_2 Pin=J3-1
+Added Pin To Net: NetName=GND Pin=J3-2
+Added Pin To Net: NetName=NetF8_2 Pin=J4-1
+Added Pin To Net: NetName=GND Pin=J4-2
+Added Pin To Net: NetName=NetF9_2 Pin=J5-1
+Added Pin To Net: NetName=GND Pin=J5-2
+Added Pin To Net: NetName=NetF10_2 Pin=J6-1
+Added Pin To Net: NetName=GND Pin=J6-2
+Added Pin To Net: NetName=NetF2_2 Pin=J7-1
+Added Pin To Net: NetName=GND Pin=J7-2

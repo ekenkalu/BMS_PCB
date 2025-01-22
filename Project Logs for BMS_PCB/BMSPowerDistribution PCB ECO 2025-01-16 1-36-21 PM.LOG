@@ -1,0 +1,15 @@
+Change Component Footprint: Designator=J2 Old Footprint=FP-M20-9990245-MFG New Footprint=CONN2_LFBN-RC_SUL - duplicate
+Change Component Footprint: Designator=Jrelay Old Footprint=FP-PH1-01-UA-MFG New Footprint=CON1_1X1_TU_SSQ
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Change Component Comment : Designator=J2 Old Comment=M20-9990245 New Comment=PPTC021LFBN-RC
+Change Component Comment : Designator=Jrelay Old Comment=PH1-01-UA New Comment=SSQ-101-03-G-S
+Change Managed Component Library Link : Designator=J2 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=F59A73ED-AE09-4223-BAF1-DCB52D864783 New ItemGUID= Old RevisionGUID=988F2DF7-6F5B-400B-B3BF-85CAAE509BAD New RevisionGUID=
+Change Managed Component Library Link : Designator=Jrelay Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=270453BE-2C03-4B02-9625-51203F62E531 New ItemGUID= Old RevisionGUID=3727E18F-3C8F-4D3E-9E89-F724ABBC8659 New RevisionGUID=
+Change component parameters: Designator = "J2" ("J2"); Footprint = "FP-M20-9990245-MFG"; UniqueID = "\EJVRBFZP" ("\EJVRBFZP")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Sullins"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Jrelay" ("Jrelay"); Footprint = "FP-PH1-01-UA-MFG"; UniqueID = "\JXGSRSHL" ("\JXGSRSHL")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Samtec Inc"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"

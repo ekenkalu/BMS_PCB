@@ -1,0 +1,36 @@
+Change Component Footprint: Designator=J5.52 Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Component Footprint: Designator=J8 Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Component Footprint: Designator=J9 Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Component Footprint: Designator=J? Old Footprint=FP-B2P-VH-FB-B_LF_SN-MFG New Footprint=CONN_B2PS-VH_JST
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Change Comment: Unknown Component : J5.51
+Change Component Comment : Designator=J5.52 Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Component Comment : Designator=J8 Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Component Comment : Designator=J9 Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Component Comment : Designator=J? Old Comment=B2P-VH-FB-B(LF)(SN) New Comment=B2PS-VHLFSN
+Change Managed Component Library Link: Component "J5.51" not found
+Change Managed Component Library Link : Designator=J5.52 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change Managed Component Library Link : Designator=J8 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change Managed Component Library Link : Designator=J9 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change Managed Component Library Link : Designator=J? Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=292E7AF8-1762-4723-B980-D3BE97E63193 New ItemGUID= Old RevisionGUID=2756B31C-38ED-49A3-AF4C-4328C2B2A100 New RevisionGUID=
+Change component parameters: Component "J5.51" not found
+Change component parameters: Designator = "J5.52" ("J5.52"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\BBHJXPAH" ("\BBHJXPAH")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J8" ("J8"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\ANNNPRQC" ("\ANNNPRQC")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J9" ("J9"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\UTFZQUWN" ("\UTFZQUWN")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J?" ("J?"); Footprint = "FP-B2P-VH-FB-B_LF_SN-MFG"; UniqueID = "\OQTPPOAI" ("\OQTPPOAI")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "JST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=BuckConverters Member=Component J3 M80-5000000M5-02-PM3-00-000
+Added Member To Class: ClassName=BuckConverters Member=Component J4 M80-5000000M5-02-PM3-00-000
+Added Member To Class: ClassName=BuckConverters Member=Component J5 M80-5000000M5-02-PM3-00-000
+Added Member To Class: ClassName=BuckConverters Member=Component J6 M80-5000000M5-02-PM3-00-000

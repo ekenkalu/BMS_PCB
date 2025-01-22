@@ -1,0 +1,57 @@
+# Created by Ultra Librarian 8.3.365 Copyright © 1999-2024
+# Frank Frank, Accelerated Designs
+
+StartFootprints
+
+Footprint (Name "CONN_M80-5000000M1-02-PM1-00-000_HRW")
+Pad (Name "1") (Location 0, 0) (HoleSize 85) (Surface False) (Rotation 0) (ExpandMask 0) (ExpandPaste -52.5)
+PadShape (Size 105, 105) (Shape Rounded) (Layer Top)
+PadShape (Size 105, 105) (Shape Rounded) (Layer Bottom)
+EndPad
+Pad (Name "2") (Location 157.48035045, 0) (HoleSize 85) (Surface False) (Rotation 0) (ExpandMask 0) (ExpandPaste -52.5)
+PadShape (Size 105, 105) (Shape Rounded) (Layer Top)
+PadShape (Size 105, 105) (Shape Rounded) (Layer Bottom)
+EndPad
+Line (Width 6) (Start -285.75984955, 119.2519989) (End -285.75984955, -138.7480011) (Layer Mechanical15) 
+Line (Width 6) (Start -285.75984955, -138.7480011) (End 443.24015045, -138.7480011) (Layer Mechanical15) 
+Line (Width 6) (Start 443.24015045, -138.7480011) (End 443.24015045, 119.2519989) (Layer Mechanical15) 
+Line (Width 6) (Start 443.24015045, 119.2519989) (End -285.75984955, 119.2519989) (Layer Mechanical15) 
+Polygon (PointCount 4) (Layer Mechanical15) 
+Point (-285.75984955, 119.2519989)
+Point (-285.75984955, -138.7480011)
+Point (443.24015045, -138.7480011)
+Point (443.24015045, 119.2519989)
+EndPolygon
+Line (Width 6) (Start -280.75984955, -133.7480011) (End 438.24015045, -133.7480011) (Layer TopOverlay) 
+Line (Width 6) (Start 438.24015045, -133.7480011) (End 438.24015045, 114.2519989) (Layer TopOverlay) 
+Line (Width 6) (Start 438.24015045, 114.2519989) (End -280.75984955, 114.2519989) (Layer TopOverlay) 
+Line (Width 6) (Start -280.75984955, 114.2519989) (End -280.75984955, -133.7480011) (Layer TopOverlay) 
+Arc (Width 20) (Radius 15) (Location -350.75984955, 0) (StartAngle 0) (EndAngle 360) (Layer TopOverlay) 
+Line (Width 1) (Start -275.75984955, -128.7480011) (End 433.24015045, -128.7480011) (Layer Mechanical13) 
+Line (Width 1) (Start 433.24015045, -128.7480011) (End 433.24015045, 109.2519989) (Layer Mechanical13) 
+Line (Width 1) (Start 433.24015045, 109.2519989) (End -275.75984955, 109.2519989) (Layer Mechanical13) 
+Line (Width 1) (Start -275.75984955, 109.2519989) (End -275.75984955, -128.7480011) (Layer Mechanical13) 
+Arc (Width 20) (Radius 15) (Location 0, 75) (StartAngle 0) (EndAngle 360) (Layer Mechanical13) 
+Arc (Width 20) (Radius 15) (Location -350.75984955, 0) (StartAngle 0) (EndAngle 360) (Layer BottomOverlay) 
+EndFootprint
+EndFootprints
+
+StartComponents
+
+Component (Name "M80-5000000M1-02-PM1-00-000") (PartCount 1) (DesPrefix "J?")
+Pin (Location 200, 0) (Rotation 180) (PinType Passive) (Length 200) (Width 0) (Designator Visible "1") (Name Hidden "1") (PinSwap 0) (PartSwap 0) (PinSeq 1) (Part 1)
+Pin (Location 200, -100) (Rotation 180) (PinType Passive) (Length 200) (Width 0) (Designator Visible "2") (Name Hidden "2") (PinSwap 0) (PartSwap 0) (PinSeq 2) (Part 1)
+Line (Width 5) (Start 400, 0) (End 200, 0) (Part 1)
+Line (Width 5) (Start 400, -100) (End 200, -100) (Part 1)
+Line (Width 5) (Start 400, 0) (End 350, 33.3333) (Part 1)
+Line (Width 5) (Start 400, -100) (End 350, -66.6667) (Part 1)
+Line (Width 5) (Start 400, 0) (End 350, -33.3333) (Part 1)
+Line (Width 5) (Start 400, -100) (End 350, -133.3333) (Part 1)
+Rectangle (Width 5) (Start 200, -200) (End 500, 100) (Part 1)
+Parameter (Name "Mfr_Name") (Location 0, 0) (Height 50) (Rotation 0) (Justification Center) (Value "Harwin") (Part 1)
+Parameter (Name "RefDes") (Location 350, 250) (Height 82) (Rotation 0) (Justification Center) (Value "RefDes") (Part 1)
+Parameter (Name "Type") (Location 400, 0) (Height 82) (Rotation 0) (Justification Center) (Value "Type") (Part 1)
+Description (Value "No Description Available") (Part 1)
+Footprint (Name "CONN_M80-5000000M1-02-PM1-00-000_HRW")
+EndComponent
+EndComponents

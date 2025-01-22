@@ -1,0 +1,39 @@
+Removed Pin From Net: NetName=GND Pin=J7-4
+Removed Pin From Net: NetName=NetF2_2 Pin=J7-8
+Change Component Footprint: Designator=J7 Old Footprint=CONN_39920-0302_MOL New Footprint=CONN2_M80-5000000M5-02-PM3-00-000_HRW
+Change Footprint: Footprint Not Found SOT_26DBZR_TEX
+Change Component Comment : Designator=J7 Old Comment=399200302 New Comment=M80-5000000M5-02-PM3-00-000
+Change component parameters: Designator = "J7" ("J7"); Footprint = "CONN_39920-0302_MOL"; UniqueID = "\EIKJBWCI" ("\EIKJBWCI")
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Component: Designator=J3(CONN2_M80-5000000M5-02-PM3-00-000_HRW)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Component: Designator=J4(CONN2_M80-5000000M5-02-PM3-00-000_HRW)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Component: Designator=J5(CONN2_M80-5000000M5-02-PM3-00-000_HRW)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Component: Designator=J6(CONN2_M80-5000000M5-02-PM3-00-000_HRW)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Harwin"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetF13_2 Pin=J3-1
+Added Pin To Net: NetName=GND Pin=J3-2
+Added Pin To Net: NetName=NetF8_2 Pin=J4-1
+Added Pin To Net: NetName=GND Pin=J4-2
+Added Pin To Net: NetName=NetF9_2 Pin=J5-1
+Added Pin To Net: NetName=GND Pin=J5-2
+Added Pin To Net: NetName=NetF10_2 Pin=J6-1
+Added Pin To Net: NetName=GND Pin=J6-2
+Added Pin To Net: NetName=NetF2_2 Pin=J7-1
+Added Pin To Net: NetName=GND Pin=J7-2
+Added Member To Class: ClassName=BuckConverters Member=Component J3 M80-5000000M5-02-PM3-00-000
+Added Member To Class: ClassName=BuckConverters Member=Component J4 M80-5000000M5-02-PM3-00-000
+Added Member To Class: ClassName=BuckConverters Member=Component J5 M80-5000000M5-02-PM3-00-000
+Added Member To Class: ClassName=BuckConverters Member=Component J6 M80-5000000M5-02-PM3-00-000
