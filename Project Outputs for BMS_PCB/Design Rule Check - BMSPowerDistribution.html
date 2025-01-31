@@ -1,0 +1,944 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD25\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2025-01-31</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11:34:13 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc" class="file"><acronym title="C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc">C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">200</td></tr>
+</table>
+</td>
+</table><a name="IDB3YLBQMNEHJRDPO5HA40QPT4ZFUFRPXAQUHT55ED1VGO2VCFHKLE"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWZLIRBYGNMJHLUZE2ZHWAYVUZDLXW3AEWKLH5KMYHV2NQY5KUFD">Clearance Constraint (Gap=4mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYFNCDDYICZL0HJ5XFBCKIBSYEKH4VYW5A0I0NT4423Q3S4EPH">Clearance Constraint (Gap=15mil) (ObjectKind = 'Poly'),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4KEAM5K22RQQJ34LQ2HQWLJJ5FW1TGPSB4VHR5ETRTB0JVRROCXD">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID10SG5CK3WHKYBHRBHR4LVDIOWNSZS5XAOMXACAF5QFJOGQWB3UDP">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">167</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEEAEQI13RSF4MKCP1BQT0R4FNCO0EIYYPCTBQLDNIPAXD2OQRTRK">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYFXNXDJDUKRKKVNZX1ULQT4YNDU3NYJTDBBV0JFNIWLDRFC4I5SF">Width Constraint (Min=4mil) (Max=150mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4PRMXNG2CRTTGG0Q35TVMZKQNIG13QUF1D4WX4OZRZVS3GH5KZMM">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCNJCIUGO3XNLPFOQADXGGK2HYPI0QEKBVZZBSHEP0AHQYNFT4MME">Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2ZNEH4OGRWKAGO3NLZFIT4SXHDDCMFYP2AOWKLKP10TMSII5YD0E">Hole Size Constraint (Min=1mil) (Max=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKJWDKU1AWYCWB1NPYAI1TUGAKOLF31KSTF3YTWGDRGWQ2SVYVOBN">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCU04ZHZVOX3PLLJJAFAQWQTF1JVT2P2I2C53JDJYIN42KLYLZV0M">Minimum Solder Mask Sliver (Gap=4mil) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3B31ORMDLWJAEQVJPYG3HWWZ1HYDSAIO1BW5RIFUDQLH0RCY2EK">Silk To Solder Mask (Clearance=5.906mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYYP4C5QBURR5I1CSQWJMY35IROWFOVALPAAHF5NSLUOCBJQDLOAG">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZQGITUJNDIYKBJE2W0VWARIY3IOQTZ0SN0NFFQEBDLNF5E3VM2GD">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">31</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQ1C0TN4SSKZOGYXXNP5I00PUOHTYWM50PMDEDBC3GC0ZLWGJFYNP">Height Constraint (Min=0mil) (Max=2000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">200</td>
+</tr>
+</table><br><a name="ID10SG5CK3WHKYBHRBHR4LVDIOWNSZS5XAOMXACAF5QFJOGQWB3UDP"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5455.63mil|Location2.X=5545mil|Location1.Y=667mil|Location2.Y=1041.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5455.63mil|Location2.X=5545mil|Location1.Y=667mil|Location2.Y=1041.811mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad 5.5 V-1(3976.378mil,996.063mil) on Top Layer And Pad 3.3 V Logic-2(4020mil,667mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5455.63mil|Location2.X=5906.417mil|Location1.Y=1006.378mil|Location2.Y=1041.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5455.63mil|Location2.X=5906.417mil|Location1.Y=1006.378mil|Location2.Y=1041.811mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad 5.5 V-1(3976.378mil,996.063mil) on Top Layer And Pad 3.3 V-1(4395.669mil,992.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5874.921mil|Location2.X=6317.834mil|Location1.Y=1006.378mil|Location2.Y=1049.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5874.921mil|Location2.X=6317.834mil|Location1.Y=1006.378mil|Location2.Y=1049.685mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad 3.3 V-1(4395.669mil,992.126mil) on Top Layer And Pad Fans-1(4807.087mil,1003.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4987.126mil|Location2.X=5057.366mil|Location1.Y=671.799mil|Location2.Y=1049.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4987.126mil|Location2.X=5057.366mil|Location1.Y=671.799mil|Location2.Y=1049.685mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MCM-1(3507.874mil,1003.937mil) on Top Layer And Pad 5.5 Logic-2(3532.366mil,671.799mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4511.968mil|Location2.X=4594.447mil|Location1.Y=383.308mil|Location2.Y=730.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4511.968mil|Location2.X=4594.447mil|Location1.Y=383.308mil|Location2.Y=730.197mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad 5.5 V addon-2(3046.968mil,670.197mil) on Multi-Layer And Pad Umcm-2(3075.787mil,366.142mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5711.297mil|Location2.X=5794.451mil|Location1.Y=134.209mil|Location2.Y=371.601mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5711.297mil|Location2.X=5794.451mil|Location1.Y=134.209mil|Location2.Y=371.601mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb1_3.3-2(4236.221mil,316.891mil) on Top Layer And Pad Cb2_3.3-2(4279.528mil,128.918mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5503.82mil|Location2.X=5751.144mil|Location1.Y=322.182mil|Location2.Y=385.353mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5503.82mil|Location2.X=5751.144mil|Location1.Y=322.182mil|Location2.Y=385.353mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3.3-2(4032.48mil,342.52mil) on Top Layer And Pad Cb1_3.3-2(4236.221mil,316.891mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5278.226mil|Location2.X=5551.14mil|Location1.Y=327.122mil|Location2.Y=385.353mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5278.226mil|Location2.X=5551.14mil|Location1.Y=327.122mil|Location2.Y=385.353mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb1_5.5-2(3803.15mil,321.831mil) on Top Layer And Pad U3.3-2(4032.48mil,342.52mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5068.781mil|Location2.X=5318.073mil|Location1.Y=327.122mil|Location2.Y=401.101mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5068.781mil|Location2.X=5318.073mil|Location1.Y=327.122mil|Location2.Y=401.101mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U5.5-2(3597.441mil,358.268mil) on Top Layer And Pad Cb1_5.5-2(3803.15mil,321.831mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2435.706mil|Location2.X=2494.157mil|Location1.Y=138.146mil|Location2.Y=376.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2435.706mil|Location2.X=2494.157mil|Location1.Y=138.146mil|Location2.Y=376.695mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb1_AS-2(960.63mil,132.855mil) on Top Layer And Pad Cbp2-2(974.447mil,326.772mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2300.08mil|Location2.X=2475.554mil|Location1.Y=49.647mil|Location2.Y=187.564mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2300.08mil|Location2.X=2475.554mil|Location1.Y=49.647mil|Location2.Y=187.564mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad RAS1_2-1(826.772mil,47.244mil) on Top Layer And Pad Cb1_AS-2(960.63mil,132.855mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2435.706mil|Location2.X=2661.376mil|Location1.Y=103.781mil|Location2.Y=187.564mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2435.706mil|Location2.X=2661.376mil|Location1.Y=103.781mil|Location2.Y=187.564mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb1_AS-2(960.63mil,132.855mil) on Top Layer And Pad U2AS-2(1142.716mil,86.614mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5991.025mil|Location2.X=6247.207mil|Location1.Y=269.07mil|Location2.Y=347.951mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5991.025mil|Location2.X=6247.207mil|Location1.Y=269.07mil|Location2.Y=347.951mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ufans-2(4519.685mil,305.118mil) on Top Layer And Pad Cb1_fans-2(4732.283mil,263.779mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4547.127mil|Location2.X=4794.782mil|Location1.Y=338.434mil|Location2.Y=408.975mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4547.127mil|Location2.X=4794.782mil|Location1.Y=338.434mil|Location2.Y=408.975mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Umcm-2(3075.787mil,366.142mil) on Top Layer And Pad Cb1_mcm-2(3279.858mil,333.143mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2342.403mil|Location2.X=2440.451mil|Location1.Y=554.568mil|Location2.Y=738.903mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2342.403mil|Location2.X=2440.451mil|Location1.Y=554.568mil|Location2.Y=738.903mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2_MD-2(871.063mil,537.402mil) on Top Layer And Pad Cb1_MD-2(925.528mil,684.193mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4188.833mil|Location2.X=4251.144mil|Location1.Y=62.339mil|Location2.Y=329.451mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4188.833mil|Location2.X=4251.144mil|Location1.Y=62.339mil|Location2.Y=329.451mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb1_servo-2(2718.542mil,279.528mil) on Top Layer And Pad Cb2servo-2(2736.22mil,57.049mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4153.224mil|Location2.X=4246.224mil|Location1.Y=289.604mil|Location2.Y=580.437mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4153.224mil|Location2.X=4246.224mil|Location1.Y=289.604mil|Location2.Y=580.437mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MCM-2(2704.724mil,503.937mil) on Multi-Layer And Pad Cb1_servo-2(2718.542mil,279.528mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5754.604mil|Location2.X=6038.307mil|Location1.Y=134.209mil|Location2.Y=222.913mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5754.604mil|Location2.X=6038.307mil|Location1.Y=134.209mil|Location2.Y=222.913mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb2_3.3-2(4279.528mil,128.918mil) on Top Layer And Pad Rfans2-2(4525.591mil,177.165mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5340.234mil|Location2.X=5575.747mil|Location1.Y=124.366mil|Location2.Y=206.219mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5340.234mil|Location2.X=5575.747mil|Location1.Y=124.366mil|Location2.Y=206.219mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb2_5.5-2(3865.157mil,119.076mil) on Top Layer And Pad U3.3_2-2(4057.087mil,163.386mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2833.344mil|Location2.X=3166.382mil|Location1.Y=59.406mil|Location2.Y=132.601mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2833.344mil|Location2.X=3166.382mil|Location1.Y=59.406mil|Location2.Y=132.601mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb2_AS-2(1358.268mil,54.115mil) on Top Layer And Pad Cbp-2(1646.672mil,82.677mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.057mil|Location2.X=2873.191mil|Location1.Y=59.406mil|Location2.Y=129.447mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.057mil|Location2.X=2873.191mil|Location1.Y=59.406mil|Location2.Y=129.447mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2AS-2(1142.716mil,86.614mil) on Top Layer And Pad Cb2_AS-2(1358.268mil,54.115mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.623mil|Location2.X=6329.884mil|Location1.Y=94.839mil|Location2.Y=160.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6078.623mil|Location2.X=6329.884mil|Location1.Y=94.839mil|Location2.Y=160.944mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2_fans-2(4607.283mil,118.11mil) on Top Layer And Pad Cb2_fans-2(4814.961mil,89.548mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4853.029mil|Location2.X=5050.357mil|Location1.Y=163.736mil|Location2.Y=213.155mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4853.029mil|Location2.X=5050.357mil|Location1.Y=163.736mil|Location2.Y=213.155mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb2_mcm-2(3377.953mil,158.445mil) on Top Layer And Pad R5.52-2(3539.37mil,159.314mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4630.789mil|Location2.X=4892.877mil|Location1.Y=163.736mil|Location2.Y=216.061mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4630.789mil|Location2.X=4892.877mil|Location1.Y=163.736mil|Location2.Y=216.061mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2_mcm-2(3159.449mil,173.228mil) on Top Layer And Pad Cb2_mcm-2(3377.953mil,158.445mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2444.738mil|Location2.X=2593.664mil|Location1.Y=336.848mil|Location2.Y=562.545mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2444.738mil|Location2.X=2593.664mil|Location1.Y=336.848mil|Location2.Y=562.545mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cbp2-2(974.447mil,326.772mil) on Top Layer And Pad Cb2_MD-2(1078.74mil,507.836mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2342.403mil|Location2.X=2593.664mil|Location1.Y=513.127mil|Location2.Y=580.235mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2342.403mil|Location2.X=2593.664mil|Location1.Y=513.127mil|Location2.Y=580.235mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2_MD-2(871.063mil,537.402mil) on Top Layer And Pad Cb2_MD-2(1078.74mil,507.836mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.962mil|Location2.X=4251.144mil|Location1.Y=62.339mil|Location2.Y=139.29mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.962mil|Location2.X=4251.144mil|Location1.Y=62.339mil|Location2.Y=139.29mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2_servo-2(2523.622mil,96.457mil) on Top Layer And Pad Cb2servo-2(2736.22mil,57.049mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3378.82mil|Location2.X=3491.302mil|Location1.Y=105.749mil|Location2.Y=284.986mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3378.82mil|Location2.X=3491.302mil|Location1.Y=105.749mil|Location2.Y=284.986mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3AS-2(1907.48mil,88.583mil) on Top Layer And Pad Cb3_AS-2(1976.378mil,230.277mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1736.104mil|Location2.X=1783.424mil|Location1.Y=635.277mil|Location2.Y=805.694mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1736.104mil|Location2.X=1783.424mil|Location1.Y=635.277mil|Location2.Y=805.694mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3_MD-2(264.764mil,618.11mil) on Top Layer And Pad Cb3_MD-2(264.764mil,750.984mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1528.427mil|Location2.X=1779.688mil|Location1.Y=756.275mil|Location2.Y=824.329mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1528.427mil|Location2.X=1779.688mil|Location1.Y=756.275mil|Location2.Y=824.329mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad UMD_2-2(57.087mil,781.496mil) on Top Layer And Pad Cb3_MD-2(264.764mil,750.984mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3593.186mil|Location2.X=3931.335mil|Location1.Y=66.276mil|Location2.Y=180.829mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3593.186mil|Location2.X=3931.335mil|Location1.Y=66.276mil|Location2.Y=180.829mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb4_AS-2(2118.11mil,60.986mil) on Top Layer And Pad Rservo2-2(2421.866mil,133.858mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3378.82mil|Location2.X=3633.034mil|Location1.Y=66.276mil|Location2.Y=131.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3378.82mil|Location2.X=3633.034mil|Location1.Y=66.276mil|Location2.Y=131.416mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3AS-2(1907.48mil,88.583mil) on Top Layer And Pad Cb4_AS-2(2118.11mil,60.986mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1951.454mil|Location2.X=2279.487mil|Location1.Y=587.049mil|Location2.Y=642.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1951.454mil|Location2.X=2279.487mil|Location1.Y=587.049mil|Location2.Y=642.243mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cb4_MD-2(476.378mil,585.611mil) on Top Layer And Pad RMD_2-1(762.795mil,584.646mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1736.104mil|Location2.X=1991.302mil|Location1.Y=590.902mil|Location2.Y=660.943mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1736.104mil|Location2.X=1991.302mil|Location1.Y=590.902mil|Location2.Y=660.943mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3_MD-2(264.764mil,618.11mil) on Top Layer And Pad Cb4_MD-2(476.378mil,585.611mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3116.963mil|Location2.X=3341.495mil|Location1.Y=92.753mil|Location2.Y=175.707mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3116.963mil|Location2.X=3341.495mil|Location1.Y=92.753mil|Location2.Y=175.707mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cbp-2(1646.672mil,82.677mil) on Top Layer And Pad RAS_2-1(1824.803mil,118.11mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3402.791mil|Location2.X=3553.209mil|Location1.Y=2675.413mil|Location2.Y=2948.209mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3402.791mil|Location2.X=3553.209mil|Location1.Y=2675.413mil|Location2.Y=2948.209mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad M1-5-6-7-8(1983mil,2843mil) on Top Layer And Pad Cin1-1(1986.228mil,2679mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3358.043mil|Location2.X=3449.173mil|Location1.Y=2594.425mil|Location2.Y=2742.587mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3358.043mil|Location2.X=3449.173mil|Location1.Y=2594.425mil|Location2.Y=2742.587mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cin1-2(1885.772mil,2679mil) on Top Layer And Pad Cinx1-2(1935.472mil,2591mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4157.413mil|Location2.X=4224.587mil|Location1.Y=2554.244mil|Location2.Y=2719.501mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4157.413mil|Location2.X=4224.587mil|Location1.Y=2554.244mil|Location2.Y=2719.501mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cinx2-2(2690mil,2542.945mil) on Top Layer And Pad Cin2-2(2696mil,2666.772mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4157.413mil|Location2.X=4224.587mil|Location1.Y=2674.043mil|Location2.Y=3045.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4157.413mil|Location2.X=4224.587mil|Location1.Y=2674.043mil|Location2.Y=3045.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc_2-1(2691.661mil,2989mil) on Top Layer And Pad Cin2-2(2696mil,2666.772mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6273.391mil|Location2.X=6356.22mil|Location1.Y=2283.815mil|Location2.Y=2434.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6273.391mil|Location2.X=6356.22mil|Location1.Y=2283.815mil|Location2.Y=2434.528mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cin3-2(4801.12mil,2287.402mil) on Top Layer And Pad Cinx3-2(4842.52mil,2377.953mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6218.492mil|Location2.X=6318.849mil|Location1.Y=1882.39mil|Location2.Y=2350.988mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6218.492mil|Location2.X=6318.849mil|Location1.Y=1882.39mil|Location2.Y=2350.988mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cout1_3-2(4754.988mil,1921.288mil) on Top Layer And Pad Cin3-2(4801.12mil,2287.402mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4264.032mil|Location2.X=4899.587mil|Location1.Y=2567.271mil|Location2.Y=2772.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4264.032mil|Location2.X=4899.587mil|Location1.Y=2567.271mil|Location2.Y=2772.433mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad M1_3-5-6-7-8(2844.241mil,2667.224mil) on Top Layer And Pad Cin4-1(3371mil,2560mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4832.413mil|Location2.X=4899.587mil|Location1.Y=2343.772mil|Location2.Y=2512.274mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4832.413mil|Location2.X=4899.587mil|Location1.Y=2343.772mil|Location2.Y=2512.274mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cin4-2(3371mil,2459.545mil) on Top Layer And Pad Cinx4-2(3372mil,2332.472mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4823mil|Location2.X=4899.587mil|Location1.Y=2466.816mil|Location2.Y=2814.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4823mil|Location2.X=4899.587mil|Location1.Y=2466.816mil|Location2.Y=2814.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc_4-1(3350mil,2758mil) on Top Layer And Pad Cin4-2(3371mil,2459.545mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5552.473mil|Location2.X=5709.17mil|Location1.Y=2254.91mil|Location2.Y=2530.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5552.473mil|Location2.X=5709.17mil|Location1.Y=2254.91mil|Location2.Y=2530.929mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad Q5-5-6-7-8(4132.682mil,2425.72mil) on Top Layer And Pad Cin5-1(4191.441mil,2258.496mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5563.257mil|Location2.X=5629.087mil|Location1.Y=2170.921mil|Location2.Y=2322.083mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5563.257mil|Location2.X=5629.087mil|Location1.Y=2170.921mil|Location2.Y=2322.083mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cin5-2(4090.986mil,2258.496mil) on Top Layer And Pad Cinx5-2(4115.386mil,2167.496mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5563.257mil|Location2.X=5617.124mil|Location1.Y=2254.91mil|Location2.Y=2713.321mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5563.257mil|Location2.X=5617.124mil|Location1.Y=2254.91mil|Location2.Y=2713.321mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cin5-2(4090.986mil,2258.496mil) on Top Layer And Pad U5-11(4113.228mil,2655.724mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3332.551mil|Location2.X=3393.68mil|Location1.Y=4100.559mil|Location2.Y=4258.72mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3332.551mil|Location2.X=3393.68mil|Location1.Y=4100.559mil|Location2.Y=4258.72mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cinx6-2(1856.251mil,4097.134mil) on Top Layer And Pad Cin6-2(1875.951mil,4195.134mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3348.222mil|Location2.X=3469.431mil|Location1.Y=4154.836mil|Location2.Y=4258.72mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3348.222mil|Location2.X=3469.431mil|Location1.Y=4154.836mil|Location2.Y=4258.72mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cin6-2(1875.951mil,4195.134mil) on Top Layer And Pad Rsense_6-1(1953.724mil,4142.591mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3966.222mil|Location2.X=4043.292mil|Location1.Y=4470.507mil|Location2.Y=4638.72mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3966.222mil|Location2.X=4043.292mil|Location1.Y=4470.507mil|Location2.Y=4638.72mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cin7-2(2493.951mil,4575.134mil) on Top Layer And Pad Rsense7-2(2525.541mil,4474.134mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3709.111mil|Location2.X=4011.68mil|Location1.Y=4571.547mil|Location2.Y=4671.009mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3709.111mil|Location2.X=4011.68mil|Location1.Y=4571.547mil|Location2.Y=4671.009mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ruv6_2-1(2240.724mil,4622.27mil) on Top Layer And Pad Cin7-2(2493.951mil,4575.134mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3411.772mil|Location2.X=3487mil|Location1.Y=2470.5mil|Location2.Y=2647.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3411.772mil|Location2.X=3487mil|Location1.Y=2470.5mil|Location2.Y=2647.575mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cinx1-2(1935.472mil,2591mil) on Top Layer And Pad Rsense-1(1973mil,2477mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4158.425mil|Location2.X=4414.45mil|Location1.Y=2613.299mil|Location2.Y=2772.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4158.425mil|Location2.X=4414.45mil|Location1.Y=2613.299mil|Location2.Y=2772.433mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad Cinx2-1(2690mil,2602mil) on Top Layer And Pad M1_3-5-6-7-8(2844.241mil,2667.224mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4147.374mil|Location2.X=4214.626mil|Location1.Y=2487.249mil|Location2.Y=2591.646mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4147.374mil|Location2.X=4214.626mil|Location1.Y=2487.249mil|Location2.Y=2591.646mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rsense2-2(2686mil,2480mil) on Top Layer And Pad Cinx2-2(2690mil,2542.945mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6305.019mil|Location2.X=6455.438mil|Location1.Y=2381.378mil|Location2.Y=2647.721mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6305.019mil|Location2.X=6455.438mil|Location1.Y=2381.378mil|Location2.Y=2647.721mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad Q1-5-6-7-8(4885.229mil,2542.512mil) on Top Layer And Pad Cinx3-1(4901.575mil,2377.953mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6214.184mil|Location2.X=6356.22mil|Location1.Y=2381.378mil|Location2.Y=2518.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6214.184mil|Location2.X=6356.22mil|Location1.Y=2381.378mil|Location2.Y=2518.371mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rsense_3-2(4737.988mil,2423.288mil) on Top Layer And Pad Cinx3-2(4842.52mil,2377.953mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6318.819mil|Location2.X=6356.22mil|Location1.Y=2381.378mil|Location2.Y=2824.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6318.819mil|Location2.X=6356.22mil|Location1.Y=2381.378mil|Location2.Y=2824.743mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cinx3-2(4842.52mil,2377.953mil) on Top Layer And Pad U3-11(4849.515mil,2767.146mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4840.425mil|Location2.X=5098.947mil|Location1.Y=2402.827mil|Location2.Y=2575.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4840.425mil|Location2.X=5098.947mil|Location1.Y=2402.827mil|Location2.Y=2575.685mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad Cinx4-1(3372mil,2391.528mil) on Top Layer And Pad Q3-5-6-7-8(3528.737mil,2470.476mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4840.425mil|Location2.X=4957.76mil|Location1.Y=2228.657mil|Location2.Y=2381.173mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4840.425mil|Location2.X=4957.76mil|Location1.Y=2228.657mil|Location2.Y=2381.173mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cinx4-2(3372mil,2332.472mil) on Top Layer And Pad Rsense_4-2(3440.01mil,2232.284mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5591.685mil|Location2.X=5722.374mil|Location1.Y=2067.87mil|Location2.Y=2224.071mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5591.685mil|Location2.X=5722.374mil|Location1.Y=2067.87mil|Location2.Y=2224.071mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cinx5-2(4115.386mil,2167.496mil) on Top Layer And Pad Rsense_5-2(4204.624mil,2071.496mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3168.564mil|Location2.X=3369.952mil|Location1.Y=3939.785mil|Location2.Y=4153.709mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3168.564mil|Location2.X=3369.952mil|Location1.Y=3939.785mil|Location2.Y=4153.709mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (1681.102mil,3917.323mil) from Top Layer to Bottom Layer And Pad Cinx6-2(1856.251mil,4097.134mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3926.551mil|Location2.X=4043.292mil|Location1.Y=4470.507mil|Location2.Y=4537.76mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3926.551mil|Location2.X=4043.292mil|Location1.Y=4470.507mil|Location2.Y=4537.76mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cinx7-2(2450.251mil,4479.134mil) on Top Layer And Pad Rsense7-2(2525.541mil,4474.134mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.671mil|Location2.X=4175.329mil|Location1.Y=2110.395mil|Location2.Y=2158.794mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3690.671mil|Location2.X=4175.329mil|Location1.Y=2110.395mil|Location2.Y=2158.794mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cout_3-2(2304mil,2106.095mil) on Top Layer And Pad Cout_2-2(2572mil,2103.095mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3958.671mil|Location2.X=4437.441mil|Location1.Y=1956.504mil|Location2.Y=2155.794mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3958.671mil|Location2.X=4437.441mil|Location1.Y=1956.504mil|Location2.Y=2155.794mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cout_2-2(2572mil,2103.095mil) on Top Layer And Pad Cout2-2(2883.386mil,1958mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3418.671mil|Location2.X=3907.329mil|Location1.Y=2113.395mil|Location2.Y=2158.794mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3418.671mil|Location2.X=3907.329mil|Location1.Y=2113.395mil|Location2.Y=2158.794mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cout-2(2032mil,2106.095mil) on Top Layer And Pad Cout_3-2(2304mil,2106.095mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4319.331mil|Location2.X=4872.986mil|Location1.Y=1955.075mil|Location2.Y=2057.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4319.331mil|Location2.X=4872.986mil|Location1.Y=1955.075mil|Location2.Y=2057.681mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cout2-2(2883.386mil,1958mil) on Top Layer And Pad Cout_4-2(3344.464mil,1976.378mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.942mil|Location2.X=4957.76mil|Location1.Y=1955.075mil|Location2.Y=2295.91mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4805.942mil|Location2.X=4957.76mil|Location1.Y=1955.075mil|Location2.Y=2295.91mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cout_4-2(3344.464mil,1976.378mil) on Top Layer And Pad Rsense_4-2(3440.01mil,2232.284mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5676.873mil|Location2.X=5854.238mil|Location1.Y=1986.193mil|Location2.Y=2135.122mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5676.873mil|Location2.X=5854.238mil|Location1.Y=1986.193mil|Location2.Y=2135.122mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rsense_5-2(4204.624mil,2071.496mil) on Top Layer And Pad Cout_5-2(4325.716mil,2007.496mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3633.551mil|Location2.X=3904.224mil|Location1.Y=3933.559mil|Location2.Y=4016.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3633.551mil|Location2.X=3904.224mil|Location1.Y=3933.559mil|Location2.Y=4016.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cout_6-2(2157.251mil,3930.134mil) on Top Layer And Pad Cvcc_7-1(2382.724mil,3964.795mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3620.295mil|Location2.X=4174.007mil|Location1.Y=5073.355mil|Location2.Y=5228.63mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3620.295mil|Location2.X=4174.007mil|Location1.Y=5073.355mil|Location2.Y=5228.63mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Css_6-1(2140.295mil,5072.855mil) on Top Layer And Pad Cout_7-2(2619.952mil,5167.134mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3418.671mil|Location2.X=3635.329mil|Location1.Y=2113.395mil|Location2.Y=2543.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3418.671mil|Location2.X=3635.329mil|Location1.Y=2113.395mil|Location2.Y=2543.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rsense-1(1973mil,2477mil) on Top Layer And Pad Cout-2(2032mil,2106.095mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6634.562mil|Location2.X=6772.358mil|Location1.Y=1663.466mil|Location2.Y=2044.784mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6634.562mil|Location2.X=6772.358mil|Location1.Y=1663.466mil|Location2.Y=2044.784mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cout2_3-2(5208.46mil,1983.288mil) on Top Layer And Pad P-fans-12(5230mil,1665mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2251.655mil|Location2.X=2457.039mil|Location1.Y=5027.6mil|Location2.Y=5171.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2251.655mil|Location2.X=2457.039mil|Location1.Y=5027.6mil|Location2.Y=5171.339mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MP--1(792.126mil,5033.071mil) on Multi-Layer And Pad CR15-2(919.118mil,5078.74mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4421.731mil|Location2.X=4581.301mil|Location1.Y=3261.76mil|Location2.Y=3285.986mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4421.731mil|Location2.X=4581.301mil|Location1.Y=3261.76mil|Location2.Y=3285.986mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_2-2(2938mil,3243.873mil) on Top Layer And Pad Rt_2-2(3077mil,3242mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6426.75mil|Location2.X=6487.365mil|Location1.Y=3126.709mil|Location2.Y=3254.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6426.75mil|Location2.X=6487.365mil|Location1.Y=3126.709mil|Location2.Y=3254.648mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_3-2(4943.019mil,3108.822mil) on Top Layer And Pad Rswitch-1(4979.398mil,3208.661mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6426.75mil|Location2.X=6586.099mil|Location1.Y=3120.692mil|Location2.Y=3150.935mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6426.75mil|Location2.X=6586.099mil|Location1.Y=3120.692mil|Location2.Y=3150.935mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_3-2(4943.019mil,3108.822mil) on Top Layer And Pad Rt_3-2(5081.799mil,3099.908mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6426.75mil|Location2.X=6455.774mil|Location1.Y=3001.833mil|Location2.Y=3150.935mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6426.75mil|Location2.X=6455.774mil|Location1.Y=3001.833mil|Location2.Y=3150.935mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_3-2(4943.019mil,3108.822mil) on Top Layer And Pad U3-6(4951.877mil,2999.43mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5042mil|Location2.X=5137.5mil|Location1.Y=3087mil|Location2.Y=3254.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5042mil|Location2.X=5137.5mil|Location1.Y=3087mil|Location2.Y=3254.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_4-1(3558mil,3071mil) on Top Layer And Pad Css_4-1(3627.5mil,3195mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5042mil|Location2.X=5202.301mil|Location1.Y=3073.784mil|Location2.Y=3115mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5042mil|Location2.X=5202.301mil|Location1.Y=3073.784mil|Location2.Y=3115mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_4-1(3558mil,3071mil) on Top Layer And Pad Rt_4-2(3698mil,3053mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5042mil|Location2.X=5085.124mil|Location1.Y=2959.686mil|Location2.Y=3115mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5042mil|Location2.X=5085.124mil|Location1.Y=2959.686mil|Location2.Y=3115mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_4-1(3558mil,3071mil) on Top Layer And Pad U4-6(3581.228mil,2957.284mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5677.219mil|Location2.X=5831.82mil|Location1.Y=3018.531mil|Location2.Y=3039.988mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5677.219mil|Location2.X=5831.82mil|Location1.Y=3018.531mil|Location2.Y=3039.988mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_5-2(4191.52mil,2998.676mil) on Top Layer And Pad Rt_5-2(4327.52mil,3000.772mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5677.219mil|Location2.X=5719.487mil|Location1.Y=2890.411mil|Location2.Y=3038.82mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5677.219mil|Location2.X=5719.487mil|Location1.Y=2890.411mil|Location2.Y=3038.82mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_5-2(4191.52mil,2998.676mil) on Top Layer And Pad U5-6(4215.591mil,2888.008mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3505.494mil|Location2.X=3669.095mil|Location1.Y=4955.614mil|Location2.Y=4975.903mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3505.494mil|Location2.X=3669.095mil|Location1.Y=4955.614mil|Location2.Y=4975.903mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_6-2(2019.795mil,4935.759mil) on Top Layer And Pad Rt_6-2(2164.795mil,4935.52mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3501.788mil|Location2.X=3524.095mil|Location1.Y=4838.769mil|Location2.Y=4975.903mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3501.788mil|Location2.X=3524.095mil|Location1.Y=4838.769mil|Location2.Y=4975.903mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U6-6(2015.684mil,4836.366mil) on Top Layer And Pad Cramp_6-2(2019.795mil,4935.759mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4108.739mil|Location2.X=4337.558mil|Location1.Y=3649.057mil|Location2.Y=3752.13mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4108.739mil|Location2.X=4337.558mil|Location1.Y=3649.057mil|Location2.Y=3752.13mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp_7-2(2625.008mil,3710.017mil) on Top Layer And Pad Rfbb7-1(2815.945mil,3649.606mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3972.708mil|Location2.X=4131.277mil|Location1.Y=3727.904mil|Location2.Y=3754.273mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3972.708mil|Location2.X=4131.277mil|Location1.Y=3727.904mil|Location2.Y=3754.273mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rt_7-2(2487.008mil,3715.057mil) on Top Layer And Pad Cramp_7-2(2625.008mil,3710.017mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4107.477mil|Location2.X=4131.277mil|Location1.Y=3727.904mil|Location2.Y=3935.546mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4107.477mil|Location2.X=4131.277mil|Location1.Y=3727.904mil|Location2.Y=3935.546mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (2622.357mil,3895.665mil) from Top Layer to Bottom Layer And Pad Cramp_7-2(2625.008mil,3710.017mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3629.726mil|Location2.X=3773.301mil|Location1.Y=3450.293mil|Location2.Y=3472.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3629.726mil|Location2.X=3773.301mil|Location1.Y=3450.293mil|Location2.Y=3472.416mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp-1(2145mil,3431.354mil) on Top Layer And Pad Rt-2(2269mil,3432.833mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3629.726mil|Location2.X=3678.101mil|Location1.Y=3329.545mil|Location2.Y=3472.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3629.726mil|Location2.X=3678.101mil|Location1.Y=3329.545mil|Location2.Y=3472.416mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cramp-1(2145mil,3431.354mil) on Top Layer And Pad U1-6(2174.205mil,3327.142mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4487.5mil|Location2.X=4589.152mil|Location1.Y=3383.5mil|Location2.Y=3442.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4487.5mil|Location2.X=4589.152mil|Location1.Y=3383.5mil|Location2.Y=3442.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Css_2-1(3007.5mil,3383mil) on Top Layer And Via (3086.614mil,3385.827mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5986.925mil|Location2.X=6106.829mil|Location1.Y=2907.738mil|Location2.Y=3095.717mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5986.925mil|Location2.X=6106.829mil|Location1.Y=2907.738mil|Location2.Y=3095.717mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Css_3-1(4506.925mil,3036.217mil) on Top Layer And Pad Rfbb_3-1(4585.216mil,2908.288mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5897.907mil|Location2.X=6016.925mil|Location1.Y=3036.717mil|Location2.Y=3103.51mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5897.907mil|Location2.X=6016.925mil|Location1.Y=3036.717mil|Location2.Y=3103.51mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ruv1_5-1(4429.52mil,3054.772mil) on Top Layer And Pad Css_3-1(4506.925mil,3036.217mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5777.02mil|Location2.X=5831.82mil|Location1.Y=3021.556mil|Location2.Y=3178.272mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5777.02mil|Location2.X=5831.82mil|Location1.Y=3021.556mil|Location2.Y=3178.272mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Css_5-1(4297.02mil,3118.772mil) on Top Layer And Pad Rt_5-2(4327.52mil,3000.772mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5777.02mil|Location2.X=5880.865mil|Location1.Y=3119.272mil|Location2.Y=3221.967mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5777.02mil|Location2.X=5880.865mil|Location1.Y=3119.272mil|Location2.Y=3221.967mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Css_5-1(4297.02mil,3118.772mil) on Top Layer And Pad starground-2(4369.095mil,3165.354mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3309.795mil|Location2.X=3650.295mil|Location1.Y=5073.355mil|Location2.Y=5133.355mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3309.795mil|Location2.X=3650.295mil|Location1.Y=5073.355mil|Location2.Y=5133.355mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rfbb_6-1(1833.795mil,5075.855mil) on Top Layer And Pad Css_6-1(2140.295mil,5072.855mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3620.295mil|Location2.X=3669.095mil|Location1.Y=4956.304mil|Location2.Y=5132.355mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3620.295mil|Location2.X=3669.095mil|Location1.Y=4956.304mil|Location2.Y=5132.355mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Css_6-1(2140.295mil,5072.855mil) on Top Layer And Pad Rt_6-2(2164.795mil,4935.52mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3886.224mil|Location2.X=3991.309mil|Location1.Y=3589.634mil|Location2.Y=3754.273mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3886.224mil|Location2.X=3991.309mil|Location1.Y=3589.634mil|Location2.Y=3754.273mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Css_7-1(2406.224mil,3589.134mil) on Top Layer And Pad Rt_7-2(2487.008mil,3715.057mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3289.181mil|Location2.X=3546.26mil|Location1.Y=3486.535mil|Location2.Y=3697.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3289.181mil|Location2.X=3546.26mil|Location1.Y=3486.535mil|Location2.Y=3697.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Css-2(1812.882mil,3490mil) on Top Layer And Pad Rpot-3(2021.26mil,3637.795mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4164.661mil|Location2.X=4421.258mil|Location1.Y=2992.5mil|Location2.Y=3057.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4164.661mil|Location2.X=4421.258mil|Location1.Y=2992.5mil|Location2.Y=3057.739mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc_2-1(2691.661mil,2989mil) on Top Layer And Via (2916.378mil,3017.858mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6168.586mil|Location2.X=6353.411mil|Location1.Y=2769.549mil|Location2.Y=2855.717mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6168.586mil|Location2.X=6353.411mil|Location1.Y=2769.549mil|Location2.Y=2855.717mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc_3-1(4695.586mil,2799.217mil) on Top Layer And Pad U3-11(4849.515mil,2767.146mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4823mil|Location2.X=4982.762mil|Location1.Y=2727.403mil|Location2.Y=2814.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4823mil|Location2.X=4982.762mil|Location1.Y=2727.403mil|Location2.Y=2814.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc_4-1(3350mil,2758mil) on Top Layer And Pad U4-11(3478.866mil,2725mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5454.102mil|Location2.X=5617.124mil|Location1.Y=2658.127mil|Location2.Y=2762.996mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5454.102mil|Location2.X=5617.124mil|Location1.Y=2658.127mil|Location2.Y=2762.996mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc_5-1(3981.102mil,2706.496mil) on Top Layer And Pad U5-11(4113.228mil,2655.724mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3281.224mil|Location2.X=3474.305mil|Location1.Y=4687.795mil|Location2.Y=4731.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3281.224mil|Location2.X=3474.305mil|Location1.Y=4687.795mil|Location2.Y=4731.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc_6-1(1812.724mil,4679.795mil) on Top Layer And Via (1969.425mil,4680.855mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3851.224mil|Location2.X=4048.498mil|Location1.Y=3972.795mil|Location2.Y=4016.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3851.224mil|Location2.X=4048.498mil|Location1.Y=3972.795mil|Location2.Y=4016.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc_7-1(2382.724mil,3964.795mil) on Top Layer And Via (2543.617mil,3974.405mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3314.323mil|Location2.X=3575.739mil|Location1.Y=3097.261mil|Location2.Y=3190.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3314.323mil|Location2.X=3575.739mil|Location1.Y=3097.261mil|Location2.Y=3190.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Cvcc-1(1841.323mil,3134mil) on Top Layer And Pad U1-11(2071.843mil,3094.858mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4042.74mil|Location2.X=4258.818mil|Location1.Y=3273.016mil|Location2.Y=3414.881mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4042.74mil|Location2.X=4258.818mil|Location1.Y=3273.016mil|Location2.Y=3414.881mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J2-2(2578.74mil,3274.016mil) on Multi-Layer And Pad Rfbb-1(2737.205mil,3354.331mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3922.387mil|Location2.X=4104.74mil|Location1.Y=3273.016mil|Location2.Y=3359.227mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3922.387mil|Location2.X=4104.74mil|Location1.Y=3273.016mil|Location2.Y=3359.227mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ruv1-1(2454mil,3310.488mil) on Top Layer And Pad J2-2(2578.74mil,3274.016mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2471.378mil|Location2.X=3706.811mil|Location1.Y=3458.858mil|Location2.Y=3726.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2471.378mil|Location2.X=3706.811mil|Location1.Y=3458.858mil|Location2.Y=3726.85mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad K1-4(1224.409mil,3649.606mil) on Multi-Layer And Pad Renable-1(2200mil,3440.669mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4583.583mil|Location2.X=5018.622mil|Location1.Y=1018.189mil|Location2.Y=1049.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4583.583mil|Location2.X=5018.622mil|Location1.Y=1018.189mil|Location2.Y=1049.685mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Servo-1(3104.331mil,1003.937mil) on Top Layer And Pad MCM-1(3507.874mil,1003.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.307mil|Location2.X=3480.276mil|Location1.Y=1008.252mil|Location2.Y=1045.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.307mil|Location2.X=3480.276mil|Location1.Y=1008.252mil|Location2.Y=1045.748mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Motor-1(1642.055mil,1000mil) on Top Layer And Pad Motor-1(1969.528mil,994mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3448.78mil|Location2.X=3809.961mil|Location1.Y=1006.378mil|Location2.Y=1039.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3448.78mil|Location2.X=3809.961mil|Location1.Y=1006.378mil|Location2.Y=1039.748mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Motor-1(1969.528mil,994mil) on Top Layer And Pad Suspension-1(2299.213mil,992.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5018.383mil|Location2.X=5161.377mil|Location1.Y=174.647mil|Location2.Y=202.281mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5018.383mil|Location2.X=5161.377mil|Location1.Y=174.647mil|Location2.Y=202.281mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R5.52-2(3539.37mil,159.314mil) on Top Layer And Pad U2_5.5-2(3642.716mil,157.48mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3298.112mil|Location2.X=3426.14mil|Location1.Y=105.749mil|Location2.Y=175.707mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3298.112mil|Location2.X=3426.14mil|Location1.Y=105.749mil|Location2.Y=175.707mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad RAS_2-1(1824.803mil,118.11mil) on Top Layer And Pad U3AS-2(1907.48mil,88.583mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3236.104mil|Location2.X=3341.495mil|Location1.Y=120.513mil|Location2.Y=302.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3236.104mil|Location2.X=3341.495mil|Location1.Y=120.513mil|Location2.Y=302.676mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad UAS_2-2(1764.764mil,259.843mil) on Top Layer And Pad RAS_2-1(1824.803mil,118.11mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2227.245mil|Location2.X=2343.463mil|Location1.Y=49.647mil|Location2.Y=208.188mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2227.245mil|Location2.X=2343.463mil|Location1.Y=49.647mil|Location2.Y=208.188mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad UAS_1-2(755.905mil,165.354mil) on Top Layer And Pad RAS1_2-1(826.772mil,47.244mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4640.457mil|Location2.X=5132.811mil|Location1.Y=3082.858mil|Location2.Y=3127.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4640.457mil|Location2.X=5132.811mil|Location1.Y=3082.858mil|Location2.Y=3127.929mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad Ruv2_2-1(3174mil,3079.228mil) on Top Layer And Pad Renable_4-1(3626mil,3064.669mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3683.189mil|Location2.X=3806.054mil|Location1.Y=3329.545mil|Location2.Y=3482.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3683.189mil|Location2.X=3806.054mil|Location1.Y=3329.545mil|Location2.Y=3482.48mil|Absolute=True">Un-Routed Net Constraint: Net NetCin1_1 Between Pad Renable-1(2200mil,3440.669mil) on Top Layer And Pad U1-1(2302.157mil,3327.142mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6002.874mil|Location2.X=6125.943mil|Location1.Y=135.277mil|Location2.Y=222.913mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6002.874mil|Location2.X=6125.943mil|Location1.Y=135.277mil|Location2.Y=222.913mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rfans2-2(4525.591mil,177.165mil) on Top Layer And Pad U2_fans-2(4607.283mil,118.11mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5991.025mil|Location2.X=6038.345mil|Location1.Y=191.417mil|Location2.Y=347.951mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5991.025mil|Location2.X=6038.345mil|Location1.Y=191.417mil|Location2.Y=347.951mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ufans-2(4519.685mil,305.118mil) on Top Layer And Pad Rfans2-2(4525.591mil,177.165mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4638.387mil|Location2.X=4851.5mil|Location1.Y=3237.5mil|Location2.Y=3321.762mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4638.387mil|Location2.X=4851.5mil|Location1.Y=3237.5mil|Location2.Y=3321.762mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ruv1_2-1(3170mil,3273.024mil) on Top Layer And Pad Rfbb_4-1(3337.5mil,3235mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5273.387mil|Location2.X=5525.02mil|Location1.Y=3107.285mil|Location2.Y=3184.272mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5273.387mil|Location2.X=5525.02mil|Location1.Y=3107.285mil|Location2.Y=3184.272mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ruv1_4-1(3805mil,3096.024mil) on Top Layer And Pad Rfbb_5-1(4011.02mil,3126.772mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4542.244mil|Location2.X=4678.109mil|Location1.Y=190.395mil|Location2.Y=280mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4542.244mil|Location2.X=4678.109mil|Location1.Y=190.395mil|Location2.Y=280mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rmcm2-2(3064.961mil,234.252mil) on Top Layer And Pad U2_mcm-2(3159.449mil,173.228mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4542.244mil|Location2.X=4594.447mil|Location1.Y=248.504mil|Location2.Y=408.975mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4542.244mil|Location2.X=4594.447mil|Location1.Y=248.504mil|Location2.Y=408.975mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rmcm2-2(3064.961mil,234.252mil) on Top Layer And Pad Umcm-2(3075.787mil,366.142mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2236.104mil|Location2.X=2389.723mil|Location1.Y=554.568mil|Location2.Y=642.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2236.104mil|Location2.X=2389.723mil|Location1.Y=554.568mil|Location2.Y=642.243mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad RMD_2-1(762.795mil,584.646mil) on Top Layer And Pad U2_MD-2(871.063mil,537.402mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2192.797mil|Location2.X=2279.487mil|Location1.Y=587.049mil|Location2.Y=749.526mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2192.797mil|Location2.X=2279.487mil|Location1.Y=587.049mil|Location2.Y=749.526mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad UMD_1-2(721.457mil,706.693mil) on Top Layer And Pad RMD_2-1(762.795mil,584.646mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1640.482mil|Location2.X=1783.424mil|Location1.Y=635.277mil|Location2.Y=705.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1640.482mil|Location2.X=1783.424mil|Location1.Y=635.277mil|Location2.Y=705.408mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad RMD2_2-1(167.173mil,647.811mil) on Top Layer And Pad U3_MD-2(264.764mil,618.11mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3902.397mil|Location2.X=4042.282mil|Location1.Y=113.623mil|Location2.Y=180.829mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3902.397mil|Location2.X=4042.282mil|Location1.Y=113.623mil|Location2.Y=180.829mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rservo2-2(2421.866mil,133.858mil) on Top Layer And Pad U2_servo-2(2523.622mil,96.457mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3889.647mil|Location2.X=3936.967mil|Location1.Y=146.887mil|Location2.Y=290.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3889.647mil|Location2.X=3936.967mil|Location1.Y=146.887mil|Location2.Y=290.865mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Uservo-2(2418.307mil,248.031mil) on Top Layer And Pad Rservo2-2(2421.866mil,133.858mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4562.699mil|Location2.X=4691.613mil|Location1.Y=3262.784mil|Location2.Y=3321.762mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4562.699mil|Location2.X=4691.613mil|Location1.Y=3262.784mil|Location2.Y=3321.762mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rt_2-2(3077mil,3242mil) on Top Layer And Pad Ruv1_2-1(3170mil,3273.024mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6567.498mil|Location2.X=6750.6mil|Location1.Y=3073.573mil|Location2.Y=3139.124mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6567.498mil|Location2.X=6750.6mil|Location1.Y=3073.573mil|Location2.Y=3139.124mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rt_3-2(5081.799mil,3099.908mil) on Top Layer And Pad Ruv1_3-1(5228.988mil,3062.312mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5183.699mil|Location2.X=5326.613mil|Location1.Y=3073.784mil|Location2.Y=3144.762mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5183.699mil|Location2.X=5326.613mil|Location1.Y=3073.784mil|Location2.Y=3144.762mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Rt_4-2(3698mil,3053mil) on Top Layer And Pad Ruv1_4-1(3805mil,3096.024mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3841.111mil|Location2.X=3991.309mil|Location1.Y=3735.841mil|Location2.Y=3831.384mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3841.111mil|Location2.X=3991.309mil|Location1.Y=3735.841mil|Location2.Y=3831.384mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ruv1_7-1(2372.724mil,3782.646mil) on Top Layer And Pad Rt_7-2(2487.008mil,3715.057mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4638.387mil|Location2.X=4691.613mil|Location1.Y=3284.285mil|Location2.Y=3386.621mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4638.387mil|Location2.X=4691.613mil|Location1.Y=3284.285mil|Location2.Y=3386.621mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (3157.48mil,3349.083mil) from Top Layer to Bottom Layer And Pad Ruv1_2-1(3170mil,3273.024mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5897.907mil|Location2.X=5951.132mil|Location1.Y=3066.033mil|Location2.Y=3221.967mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5897.907mil|Location2.X=5951.132mil|Location1.Y=3066.033mil|Location2.Y=3221.967mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Ruv1_5-1(4429.52mil,3054.772mil) on Top Layer And Pad starground-1(4434.055mil,3165.354mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3552.969mil|Location2.X=3762.337mil|Location1.Y=4606.486mil|Location2.Y=4671.009mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3552.969mil|Location2.X=3762.337mil|Location1.Y=4606.486mil|Location2.Y=4671.009mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U6-17(2066.865mil,4604.083mil) on Top Layer And Pad Ruv6_2-1(2240.724mil,4622.27mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4166.26mil|Location2.X=4615.079mil|Location1.Y=994.567mil|Location2.Y=1049.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4166.26mil|Location2.X=4615.079mil|Location1.Y=994.567mil|Location2.Y=1049.685mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Suspension-1(2687.008mil,980.315mil) on Top Layer And Pad Servo-1(3104.331mil,1003.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5847.324mil|Location2.X=5945.825mil|Location1.Y=3168.742mil|Location2.Y=3221.967mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5847.324mil|Location2.X=5945.825mil|Location1.Y=3168.742mil|Location2.Y=3221.967mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad starground-2(4369.095mil,3165.354mil) on Top Layer And Pad starground-1(4434.055mil,3165.354mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3778.465mil|Location2.X=4197.756mil|Location1.Y=994.567mil|Location2.Y=1037.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3778.465mil|Location2.X=4197.756mil|Location1.Y=994.567mil|Location2.Y=1037.874mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Suspension-1(2299.213mil,992.126mil) on Top Layer And Pad Suspension-1(2687.008mil,980.315mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3557.946mil|Location2.X=3626.92mil|Location1.Y=3097.261mil|Location2.Y=3152.455mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3557.946mil|Location2.X=3626.92mil|Location1.Y=3097.261mil|Location2.Y=3152.455mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-11(2071.843mil,3094.858mil) on Top Layer And Pad U1-13(2123.024mil,3094.858mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.127mil|Location2.X=3652.51mil|Location1.Y=3097.261mil|Location2.Y=3152.455mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3609.127mil|Location2.X=3652.51mil|Location1.Y=3097.261mil|Location2.Y=3152.455mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-13(2123.024mil,3094.858mil) on Top Layer And Pad U1-14(2148.614mil,3094.858mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3634.718mil|Location2.X=3729.282mil|Location1.Y=3097.261mil|Location2.Y=3152.455mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3634.718mil|Location2.X=3729.282mil|Location1.Y=3097.261mil|Location2.Y=3152.455mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-14(2148.614mil,3094.858mil) on Top Layer And Pad U1-17(2225.386mil,3094.858mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5068.781mil|Location2.X=5161.377mil|Location1.Y=174.647mil|Location2.Y=401.101mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5068.781mil|Location2.X=5161.377mil|Location1.Y=174.647mil|Location2.Y=401.101mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U5.5-2(3597.441mil,358.268mil) on Top Layer And Pad U2_5.5-2(3642.716mil,157.48mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4346.379mil|Location2.X=4415.353mil|Location1.Y=2904.119mil|Location2.Y=2959.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4346.379mil|Location2.X=4415.353mil|Location1.Y=2904.119mil|Location2.Y=2959.314mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2-11(2860.276mil,2901.716mil) on Top Layer And Pad U2-13(2911.457mil,2901.716mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4397.56mil|Location2.X=4421.258mil|Location1.Y=2904.119mil|Location2.Y=3018.369mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4397.56mil|Location2.X=4421.258mil|Location1.Y=2904.119mil|Location2.Y=3018.369mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2-13(2911.457mil,2901.716mil) on Top Layer And Via (2916.378mil,2978.488mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4480.238mil|Location2.X=4517.715mil|Location1.Y=2904.119mil|Location2.Y=3018.369mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4480.238mil|Location2.X=4517.715mil|Location1.Y=2904.119mil|Location2.Y=3018.369mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (2995.118mil,2978.488mil) from Top Layer to Bottom Layer And Pad U2-17(3013.819mil,2901.716mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5503.82mil|Location2.X=5575.747mil|Location1.Y=180.553mil|Location2.Y=385.353mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5503.82mil|Location2.X=5575.747mil|Location1.Y=180.553mil|Location2.Y=385.353mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3.3-2(4032.48mil,342.52mil) on Top Layer And Pad U3.3_2-2(4057.087mil,163.386mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6335.619mil|Location2.X=6404.592mil|Location1.Y=2769.549mil|Location2.Y=2824.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6335.619mil|Location2.X=6404.592mil|Location1.Y=2769.549mil|Location2.Y=2824.743mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3-11(4849.515mil,2767.146mil) on Top Layer And Pad U3-13(4900.696mil,2767.146mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6386.8mil|Location2.X=6430.183mil|Location1.Y=2769.549mil|Location2.Y=2824.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6386.8mil|Location2.X=6430.183mil|Location1.Y=2769.549mil|Location2.Y=2824.743mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3-13(4900.696mil,2767.146mil) on Top Layer And Pad U3-14(4926.287mil,2767.146mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6412.391mil|Location2.X=6506.955mil|Location1.Y=2769.549mil|Location2.Y=2824.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6412.391mil|Location2.X=6506.955mil|Location1.Y=2769.549mil|Location2.Y=2824.743mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3-14(4926.287mil,2767.146mil) on Top Layer And Pad U3-17(5003.058mil,2767.146mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4964.97mil|Location2.X=5033.943mil|Location1.Y=2727.403mil|Location2.Y=2782.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4964.97mil|Location2.X=5033.943mil|Location1.Y=2727.403mil|Location2.Y=2782.597mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U4-11(3478.866mil,2725mil) on Top Layer And Pad U4-13(3530.047mil,2725mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5016.151mil|Location2.X=5059.534mil|Location1.Y=2727.403mil|Location2.Y=2782.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5016.151mil|Location2.X=5059.534mil|Location1.Y=2727.403mil|Location2.Y=2782.597mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U4-13(3530.047mil,2725mil) on Top Layer And Pad U4-14(3555.638mil,2725mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5041.742mil|Location2.X=5136.306mil|Location1.Y=2727.403mil|Location2.Y=2782.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5041.742mil|Location2.X=5136.306mil|Location1.Y=2727.403mil|Location2.Y=2782.597mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U4-14(3555.638mil,2725mil) on Top Layer And Pad U4-17(3632.409mil,2725mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5599.332mil|Location2.X=5668.306mil|Location1.Y=2658.127mil|Location2.Y=2713.321mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5599.332mil|Location2.X=5668.306mil|Location1.Y=2658.127mil|Location2.Y=2713.321mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U5-11(4113.228mil,2655.724mil) on Top Layer And Pad U5-13(4164.409mil,2655.724mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5650.513mil|Location2.X=5693.896mil|Location1.Y=2658.127mil|Location2.Y=2713.321mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5650.513mil|Location2.X=5693.896mil|Location1.Y=2658.127mil|Location2.Y=2713.321mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U5-13(4164.409mil,2655.724mil) on Top Layer And Pad U5-14(4190mil,2655.724mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5676.104mil|Location2.X=5770.668mil|Location1.Y=2658.127mil|Location2.Y=2713.321mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5676.104mil|Location2.X=5770.668mil|Location1.Y=2658.127mil|Location2.Y=2713.321mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U5-14(4190mil,2655.724mil) on Top Layer And Pad U5-17(4266.772mil,2655.724mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3399.426mil|Location2.X=3468.399mil|Location1.Y=4606.486mil|Location2.Y=4661.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3399.426mil|Location2.X=3468.399mil|Location1.Y=4606.486mil|Location2.Y=4661.68mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U6-11(1913.322mil,4604.083mil) on Top Layer And Pad U6-13(1964.503mil,4604.083mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3450.607mil|Location2.X=3493.99mil|Location1.Y=4606.486mil|Location2.Y=4661.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3450.607mil|Location2.X=3493.99mil|Location1.Y=4606.486mil|Location2.Y=4661.68mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U6-13(1964.503mil,4604.083mil) on Top Layer And Pad U6-14(1990.094mil,4604.083mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3476.198mil|Location2.X=3570.762mil|Location1.Y=4606.486mil|Location2.Y=4661.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3476.198mil|Location2.X=3570.762mil|Location1.Y=4606.486mil|Location2.Y=4661.68mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U6-14(1990.094mil,4604.083mil) on Top Layer And Pad U6-17(2066.865mil,4604.083mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4152.752mil|Location2.X=4221.726mil|Location1.Y=4053.58mil|Location2.Y=4108.774mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4152.752mil|Location2.X=4221.726mil|Location1.Y=4053.58mil|Location2.Y=4108.774mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U7-13(2666.649mil,4051.177mil) on Top Layer And Pad U7-11(2717.83mil,4051.177mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.162mil|Location2.X=4170.545mil|Location1.Y=4053.58mil|Location2.Y=4108.774mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.162mil|Location2.X=4170.545mil|Location1.Y=4053.58mil|Location2.Y=4108.774mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U7-14(2641.058mil,4051.177mil) on Top Layer And Pad U7-13(2666.649mil,4051.177mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4050.39mil|Location2.X=4144.954mil|Location1.Y=4053.58mil|Location2.Y=4108.774mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4050.39mil|Location2.X=4144.954mil|Location1.Y=4053.58mil|Location2.Y=4108.774mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U7-17(2564.287mil,4051.177mil) on Top Layer And Pad U7-14(2641.058mil,4051.177mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3256.583mil|Location2.X=6249.693mil|Location1.Y=2840.071mil|Location2.Y=4639.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3256.583mil|Location2.X=6249.693mil|Location1.Y=2840.071mil|Location2.Y=4639.85mil|Absolute=True">Un-Routed Net Constraint: Net COM Between Via (1861.583mil,2910.071mil) from Top Layer to Bottom Layer And Track (4654.693mil,4509.85mil)(4689.248mil,4509.85mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3317.175mil|Location2.X=3368.432mil|Location1.Y=2790.427mil|Location2.Y=2829.873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3317.175mil|Location2.X=3368.432mil|Location1.Y=2790.427mil|Location2.Y=2829.873mil|Absolute=True">Un-Routed Net Constraint: Net COM Between Via (1834.024mil,2772.276mil) from Top Layer to Bottom Layer And Via (1861.583mil,2788.024mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3317.797mil|Location2.X=3368.432mil|Location1.Y=2928.222mil|Location2.Y=2963.109mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3317.797mil|Location2.X=3368.432mil|Location1.Y=2928.222mil|Location2.Y=2963.109mil|Absolute=True">Un-Routed Net Constraint: Net COM Between Via (1834.646mil,2921.26mil) from Top Layer to Bottom Layer And Via (1861.583mil,2910.071mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.86mil|Location2.X=3360.558mil|Location1.Y=2841.608mil|Location2.Y=2892.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.86mil|Location2.X=3360.558mil|Location1.Y=2841.608mil|Location2.Y=2892.865mil|Absolute=True">Un-Routed Net Constraint: Net COM Between Via (1853.709mil,2823.457mil) from Top Layer to Bottom Layer And Via (1853.709mil,2851.016mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.86mil|Location2.X=3368.432mil|Location1.Y=2806.175mil|Location2.Y=2865.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.86mil|Location2.X=3368.432mil|Location1.Y=2806.175mil|Location2.Y=2865.306mil|Absolute=True">Un-Routed Net Constraint: Net COM Between Via (1853.709mil,2823.457mil) from Top Layer to Bottom Layer And Via (1861.583mil,2788.024mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.86mil|Location2.X=3368.432mil|Location1.Y=2892.789mil|Location2.Y=2951.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.86mil|Location2.X=3368.432mil|Location1.Y=2892.789mil|Location2.Y=2951.92mil|Absolute=True">Un-Routed Net Constraint: Net COM Between Via (1853.709mil,2874.638mil) from Top Layer to Bottom Layer And Via (1861.583mil,2910.071mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCU04ZHZVOX3PLLJJAFAQWQTF1JVT2P2I2C53JDJYIN42KLYLZV0M"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=4mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3346.084mil|Location2.X=3351.334mil|Location1.Y=2864.611mil|Location2.Y=2869.861mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3346.084mil|Location2.X=3351.334mil|Location1.Y=2864.611mil|Location2.Y=2869.861mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.861mil &lt; 4mil) Between Via (1853.709mil,2823.457mil) from Top Layer to Bottom Layer And Via (1853.709mil,2851.016mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [3.861mil] / [Bottom Solder] Mask Sliver [3.861mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4340.178mil|Location2.X=4345.428mil|Location1.Y=1823.273mil|Location2.Y=1828.523mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4340.178mil|Location2.X=4345.428mil|Location1.Y=1823.273mil|Location2.Y=1828.523mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.861mil &lt; 4mil) Between Via (2834.024mil,1795.898mil) from Top Layer to Bottom Layer And Via (2861.583mil,1795.898mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [3.861mil] / [Bottom Solder] Mask Sliver [3.861mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDZQGITUJNDIYKBJE2W0VWARIY3IOQTZ0SN0NFFQEBDLNF5E3VM2GD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3848.36mil|Location2.Y=3891.671mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3848.36mil|Location2.Y=3891.671mil|Absolute=True">Net Antennae: Via (1629.921mil,3829.398mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3869.356mil|Location2.Y=3912.667mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3869.356mil|Location2.Y=3912.667mil|Absolute=True">Net Antennae: Via (1629.921mil,3850.394mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3889.041mil|Location2.Y=3932.352mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3889.041mil|Location2.Y=3932.352mil|Absolute=True">Net Antennae: Via (1629.921mil,3870.079mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3912.663mil|Location2.Y=3955.974mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3912.663mil|Location2.Y=3955.974mil|Absolute=True">Net Antennae: Via (1629.921mil,3893.701mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3936.285mil|Location2.Y=3979.596mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.883mil|Location2.X=3142.997mil|Location1.Y=3936.285mil|Location2.Y=3979.596mil|Absolute=True">Net Antennae: Via (1629.921mil,3917.323mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.505mil|Location2.X=3166.619mil|Location1.Y=3873.293mil|Location2.Y=3916.604mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.505mil|Location2.X=3166.619mil|Location1.Y=3873.293mil|Location2.Y=3916.604mil|Absolute=True">Net Antennae: Via (1653.543mil,3854.331mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.505mil|Location2.X=3166.619mil|Location1.Y=3896.915mil|Location2.Y=3940.226mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.505mil|Location2.X=3166.619mil|Location1.Y=3896.915mil|Location2.Y=3940.226mil|Absolute=True">Net Antennae: Via (1653.543mil,3877.953mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.505mil|Location2.X=3166.619mil|Location1.Y=3916.6mil|Location2.Y=3959.911mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.505mil|Location2.X=3166.619mil|Location1.Y=3916.6mil|Location2.Y=3959.911mil|Absolute=True">Net Antennae: Via (1653.543mil,3897.638mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.505mil|Location2.X=3166.619mil|Location1.Y=3936.285mil|Location2.Y=3979.596mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.505mil|Location2.X=3166.619mil|Location1.Y=3936.285mil|Location2.Y=3979.596mil|Absolute=True">Net Antennae: Via (1653.543mil,3917.323mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3161.127mil|Location2.X=3190.241mil|Location1.Y=3896.915mil|Location2.Y=3940.226mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3161.127mil|Location2.X=3190.241mil|Location1.Y=3896.915mil|Location2.Y=3940.226mil|Absolute=True">Net Antennae: Via (1677.165mil,3877.953mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3165.064mil|Location2.X=3194.178mil|Location1.Y=3916.6mil|Location2.Y=3959.911mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3165.064mil|Location2.X=3194.178mil|Location1.Y=3916.6mil|Location2.Y=3959.911mil|Absolute=True">Net Antennae: Via (1681.102mil,3897.638mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3165.064mil|Location2.X=3194.178mil|Location1.Y=3936.285mil|Location2.Y=3979.596mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3165.064mil|Location2.X=3194.178mil|Location1.Y=3936.285mil|Location2.Y=3979.596mil|Absolute=True">Net Antennae: Via (1681.102mil,3917.323mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3313.675mil|Location2.X=3352.173mil|Location1.Y=2786.927mil|Location2.Y=2845.819mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3313.675mil|Location2.X=3352.173mil|Location1.Y=2786.927mil|Location2.Y=2845.819mil|Absolute=True">Net Antennae: Via (1834.024mil,2772.276mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3314.297mil|Location2.X=3352.795mil|Location1.Y=2935.911mil|Location2.Y=2994.803mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3314.297mil|Location2.X=3352.795mil|Location1.Y=2935.911mil|Location2.Y=2994.803mil|Absolute=True">Net Antennae: Via (1834.646mil,2921.26mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3333.36mil|Location2.X=3371.858mil|Location1.Y=2838.108mil|Location2.Y=2897mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3333.36mil|Location2.X=3371.858mil|Location1.Y=2838.108mil|Location2.Y=2897mil|Absolute=True">Net Antennae: Via (1853.709mil,2823.457mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3333.36mil|Location2.X=3371.858mil|Location1.Y=2865.667mil|Location2.Y=2924.559mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3333.36mil|Location2.X=3371.858mil|Location1.Y=2865.667mil|Location2.Y=2924.559mil|Absolute=True">Net Antennae: Via (1853.709mil,2851.016mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3333.36mil|Location2.X=3371.858mil|Location1.Y=2889.289mil|Location2.Y=2948.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3333.36mil|Location2.X=3371.858mil|Location1.Y=2889.289mil|Location2.Y=2948.181mil|Absolute=True">Net Antennae: Via (1853.709mil,2874.638mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3341.234mil|Location2.X=3379.732mil|Location1.Y=2802.675mil|Location2.Y=2861.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3341.234mil|Location2.X=3379.732mil|Location1.Y=2802.675mil|Location2.Y=2861.567mil|Absolute=True">Net Antennae: Via (1861.583mil,2788.024mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3341.234mil|Location2.X=3379.732mil|Location1.Y=2924.722mil|Location2.Y=2983.614mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3341.234mil|Location2.X=3379.732mil|Location1.Y=2924.722mil|Location2.Y=2983.614mil|Absolute=True">Net Antennae: Via (1861.583mil,2910.071mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.954mil|Location2.X=4576.068mil|Location1.Y=3459.907mil|Location2.Y=3503.218mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4546.954mil|Location2.X=4576.068mil|Location1.Y=3459.907mil|Location2.Y=3503.218mil|Absolute=True">Net Antennae: Via (3062.992mil,3440.945mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4570.576mil|Location2.X=4599.69mil|Location1.Y=3404.789mil|Location2.Y=3448.1mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4570.576mil|Location2.X=4599.69mil|Location1.Y=3404.789mil|Location2.Y=3448.1mil|Absolute=True">Net Antennae: Via (3086.614mil,3385.827mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4574.513mil|Location2.X=4603.627mil|Location1.Y=3455.97mil|Location2.Y=3499.281mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4574.513mil|Location2.X=4603.627mil|Location1.Y=3455.97mil|Location2.Y=3499.281mil|Absolute=True">Net Antennae: Via (3090.551mil,3437.008mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4578.45mil|Location2.X=4607.564mil|Location1.Y=3432.348mil|Location2.Y=3475.659mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4578.45mil|Location2.X=4607.564mil|Location1.Y=3432.348mil|Location2.Y=3475.659mil|Absolute=True">Net Antennae: Via (3094.488mil,3413.386mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4598.135mil|Location2.X=4627.249mil|Location1.Y=3448.096mil|Location2.Y=3491.407mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4598.135mil|Location2.X=4627.249mil|Location1.Y=3448.096mil|Location2.Y=3491.407mil|Absolute=True">Net Antennae: Via (3114.173mil,3429.134mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4602.072mil|Location2.X=4631.186mil|Location1.Y=3389.041mil|Location2.Y=3432.352mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4602.072mil|Location2.X=4631.186mil|Location1.Y=3389.041mil|Location2.Y=3432.352mil|Absolute=True">Net Antennae: Via (3118.11mil,3370.079mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4606.009mil|Location2.X=4635.123mil|Location1.Y=3416.6mil|Location2.Y=3459.911mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4606.009mil|Location2.X=4635.123mil|Location1.Y=3416.6mil|Location2.Y=3459.911mil|Absolute=True">Net Antennae: Via (3122.047mil,3397.638mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4617.82mil|Location2.X=4646.934mil|Location1.Y=3432.348mil|Location2.Y=3475.659mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4617.82mil|Location2.X=4646.934mil|Location1.Y=3432.348mil|Location2.Y=3475.659mil|Absolute=True">Net Antennae: Via (3133.858mil,3413.386mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4641.442mil|Location2.X=4670.556mil|Location1.Y=3368.045mil|Location2.Y=3411.356mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4641.442mil|Location2.X=4670.556mil|Location1.Y=3368.045mil|Location2.Y=3411.356mil|Absolute=True">Net Antennae: Via (3157.48mil,3349.083mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4641.442mil|Location2.X=4670.556mil|Location1.Y=3389.041mil|Location2.Y=3432.352mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4641.442mil|Location2.X=4670.556mil|Location1.Y=3389.041mil|Location2.Y=3432.352mil|Absolute=True">Net Antennae: Via (3157.48mil,3370.079mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4641.442mil|Location2.X=4670.556mil|Location1.Y=3408.726mil|Location2.Y=3452.037mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4641.442mil|Location2.X=4670.556mil|Location1.Y=3408.726mil|Location2.Y=3452.037mil|Absolute=True">Net Antennae: Via (3157.48mil,3389.764mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4665.064mil|Location2.X=4694.178mil|Location1.Y=3392.978mil|Location2.Y=3436.289mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ekend\Desktop\BMS2_PCB\BMSPowerDistribution.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4665.064mil|Location2.X=4694.178mil|Location1.Y=3392.978mil|Location2.Y=3436.289mil|Absolute=True">Net Antennae: Via (3181.102mil,3374.016mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
